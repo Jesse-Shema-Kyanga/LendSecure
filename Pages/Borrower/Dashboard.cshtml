@@ -1,0 +1,120 @@
+﻿@page
+@model LendSecure.Pages.Borrower.DashboardModel
+@{
+    ViewData["Title"] = "Borrower Dashboard";
+}
+
+<div class="container mt-4">
+    <!-- Welcome Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h4 class="mb-0">👋 Welcome, @Model.UserEmail!</h4>
+                <p class="mb-0">You're logged in as a <strong>Borrower</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wallet Balance -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">💰 Wallet Balance</h5>
+                    <h2 class="mb-0">@Model.WalletBalance.ToString("N0") RWF</h2>
+                    <small>Demo money for testing</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">📋 Active Loans</h5>
+                    <h2 class="mb-0">@Model.ActiveLoansCount</h2>
+                    <small>Loans currently active</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">📄 KYC Status</h5>
+                    <h2 class="mb-0">
+                        @if (Model.KYCStatus == "Approved")
+                        {
+                            <span class="badge bg-light text-success">✓ Approved</span>
+                        }
+                        else if (Model.KYCStatus == "Pending")
+                        {
+                            <span class="badge bg-light text-warning">⏳ Pending</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-light text-danger">✗ Not Submitted</span>
+                        }
+                    </h2>
+                    <small>Document verification status</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">⚡ Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.KYCStatus != "Approved")
+                    {
+                        <div class="alert alert-warning">
+                            <strong>⚠️ KYC Required:</strong> You must upload and get your KYC documents approved before requesting loans.
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <a href="/KYC/Upload" class="btn btn-outline-primary btn-lg w-100">
+                                📄 Upload KYC Documents
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Loan/Create" class="btn btn-success btn-lg w-100" @(Model.KYCStatus != "Approved" ? "disabled" : "")>
+                                💵 Request a Loan
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Loan/MyLoans" class="btn btn-info btn-lg w-100">
+                                📋 View My Loans
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Repayment/Schedule" class="btn btn-warning btn-lg w-100">
+                                💳 Repayment Schedule
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Info -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">👤 Account Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> @Model.UserEmail</p>
+                    <p><strong>Role:</strong> Borrower</p>
+                    <p><strong>Member Since:</strong> @Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
+                    <hr />
+                    <a href="/Account/Logout" class="btn btn-danger">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

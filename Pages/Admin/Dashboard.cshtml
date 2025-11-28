@@ -1,0 +1,166 @@
+﻿@page
+@model LendSecure.Pages.Admin.DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <!-- Welcome Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-danger">
+                <h4 class="mb-0">🔧 Admin Dashboard</h4>
+                <p class="mb-0">Welcome, <strong>@Model.UserEmail</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Stats -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">👥 Total Users</h5>
+                    <h2 class="mb-0">@Model.TotalUsers</h2>
+                    <small>Registered accounts</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">📄 Pending KYC</h5>
+                    <h2 class="mb-0">@Model.PendingKYCCount</h2>
+                    <small>Need review</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">💵 Pending Loans</h5>
+                    <h2 class="mb-0">@Model.PendingLoansCount</h2>
+                    <small>Need approval</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">📊 Active Loans</h5>
+                    <h2 class="mb-0">@Model.ActiveLoansCount</h2>
+                    <small>Currently funded</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">⚡ Admin Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <a href="/Admin/KYCReview" class="btn btn-warning btn-lg w-100">
+                                📄 Review KYC Documents (@Model.PendingKYCCount pending)
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Admin/LoanApprovals" class="btn btn-info btn-lg w-100">
+                                💵 Approve Loans (@Model.PendingLoansCount pending)
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Admin/Users" class="btn btn-primary btn-lg w-100">
+                                👥 Manage Users
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Admin/AuditLogs" class="btn btn-secondary btn-lg w-100">
+                                📋 View Audit Logs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📄 Recent KYC Submissions</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentKYCDocs.Any())
+                    {
+                        <ul class="list-group">
+                            @foreach (var doc in Model.RecentKYCDocs.Take(5))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>@doc.User.Email</span>
+                                    <span class="badge bg-warning">@doc.Status</span>
+                                </li>
+                            }
+                        </ul>
+                        <a href="/Admin/KYCReview" class="btn btn-sm btn-primary mt-2">View All</a>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No pending KYC documents</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">💵 Recent Loan Requests</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentLoanRequests.Any())
+                    {
+                        <ul class="list-group">
+                            @foreach (var loan in Model.RecentLoanRequests.Take(5))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>@loan.Borrower.Email - @loan.AmountRequested.ToString("N0") RWF</span>
+                                    <span class="badge bg-info">@loan.Status</span>
+                                </li>
+                            }
+                        </ul>
+                        <a href="/Admin/LoanApprovals" class="btn btn-sm btn-primary mt-2">View All</a>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No pending loan requests</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Info -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">👤 Account Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> @Model.UserEmail</p>
+                    <p><strong>Role:</strong> Admin</p>
+                    <p><strong>Member Since:</strong> @Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
+                    <hr />
+                    <a href="/Account/Logout" class="btn btn-danger">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
