@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="Pages\Dashboard\" />
     <Folder Include="Uploads\" />
+    <Folder Include="wwwroot\uploads\kyc\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,131 @@
+﻿@page
+@model LendSecure.Pages.Admin.KYCReviewModel
+@{
+    ViewData["Title"] = "KYC Review";
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2>📄 KYC Document Review</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">KYC Review</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Filter Tabs -->
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link @(Model.Filter == "Pending" ? "active" : "")" href="?filter=Pending">
+                Pending (@Model.PendingCount)
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(Model.Filter == "All" ? "active" : "")" href="?filter=All">
+                All Documents (@Model.TotalCount)
+            </a>
+        </li>
+    </ul>
+
+    <!-- KYC Documents List -->
+    @if (Model.Documents.Any())
+    {
+        <div class="row">
+            @foreach (var doc in Model.Documents)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header @(doc.Status == "Pending" ? "bg-warning" : doc.Status == "Approved" ? "bg-success text-white" : "bg-danger text-white")">
+                            <strong>@doc.DocType</strong>
+                            <span class="float-end badge @(doc.Status == "Pending" ? "bg-dark" : "bg-light text-dark")">
+                                @doc.Status
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <!-- Document Image -->
+                            <div class="mb-3 text-center">
+                                <img src="@doc.FilePath" alt="KYC Document" class="img-fluid rounded border" style="max-height: 200px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal_@doc.DocId" />
+                            </div>
+
+                            <!-- User Info -->
+                            <p class="mb-1"><strong>User:</strong> @doc.User.Email</p>
+                            <p class="mb-1"><strong>Role:</strong> @doc.User.Role</p>
+                            <p class="mb-1"><strong>Submitted:</strong> @doc.DocId</p>
+
+                            @if (doc.Status == "Pending")
+                            {
+                                <!-- Approval Buttons -->
+                                <form method="post" class="d-grid gap-2 mt-3">
+                                    <input type="hidden" name="docId" value="@doc.DocId" />
+                                    <button type="submit" name="action" value="approve" class="btn btn-success">
+                                        ✓ Approve
+                                    </button>
+                                    <button type="submit" name="action" value="reject" class="btn btn-danger">
+                                        ✗ Reject
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="mt-3">
+                                    <small class="text-muted">
+                                        Reviewed: @(doc.ReviewedAt?.ToString("MMM dd, yyyy") ?? "N/A")
+                                    </small>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Image Modal -->
+                    <div class="modal fade" id="imageModal_@doc.DocId" tabindex="-1">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">@doc.DocType - @doc.User.Email</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="@doc.FilePath" alt="KYC Document" class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <strong>No documents to review.</strong>
+            @if (Model.Filter == "Pending")
+            {
+                <p class="mb-0">All KYC documents have been reviewed!</p>
+            }
+            else
+            {
+                <p class="mb-0">No KYC documents have been submitted yet.</p>
+            }
+        </div>
+    }
+</div>

@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Jess\\source\\repos\\LendSecure\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\kycreview.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\kycreview.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\kycreview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\kycreview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\kyc\\upload.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\kyc\\upload.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\kyc\\upload.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\kyc\\upload.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -74,8 +90,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KYCReview.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\KYCReview.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\KYCReview.cshtml.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAmwHIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T12:05:51.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KYCReview.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\KYCReview.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\KYCReview.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAmwIIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T12:05:32.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Upload.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\KYC\\Upload.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml.cs",
+              "RelativeToolTip": "Pages\\KYC\\Upload.cshtml.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAAAK8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T12:04:04.067Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:425208035:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
@@ -86,7 +141,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Upload.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml",
+              "RelativeDocumentMoniker": "Pages\\KYC\\Upload.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml",
+              "RelativeToolTip": "Pages\\KYC\\Upload.cshtml",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAmwIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T12:03:04.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
@@ -99,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Lender\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Lender\\Dashboard.cshtml.cs",
@@ -112,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Lender\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Pages\\Lender\\Dashboard.cshtml",
@@ -125,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml",
@@ -138,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml.cs",
@@ -151,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Admin\\Dashboard.cshtml.cs",
@@ -164,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -177,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml.cs",
@@ -190,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Pages\\Admin\\Dashboard.cshtml",
@@ -203,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml",
@@ -216,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml.cs",
@@ -229,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml",
@@ -242,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -255,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Models.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Models\\Models.cs",
               "RelativeDocumentMoniker": "Models\\Models.cs",
@@ -268,7 +336,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -281,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",

@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/KYCReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cS1lDUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jess/source/repos/LendSecure/Pages/Borrower/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9ycm93ZXJcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/KYC/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS1lDXFVwbG9hZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Lender/Dashboard.cshtml]
