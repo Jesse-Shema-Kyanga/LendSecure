@@ -5,16 +5,29 @@ namespace LendSecure.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        public IActionResult OnGet()
         {
-            _logger = logger;
-        }
+            var userId = HttpContext.Session.GetString("UserId");
 
-        public void OnGet()
-        {
+            if (!string.IsNullOrEmpty(userId))
+            {
+                var role = HttpContext.Session.GetString("UserRole");
 
+                if (role == "Admin")
+                {
+                    return RedirectToPage("/Admin/Dashboard");
+                }
+                else if (role == "Borrower")
+                {
+                    return RedirectToPage("/Borrower/Dashboard");
+                }
+                else if (role == "Lender")
+                {
+                    return RedirectToPage("/Lender/Dashboard");
+                }
+            }
+
+            return RedirectToPage("/Account/Login");
         }
     }
 }

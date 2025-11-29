@@ -98,7 +98,10 @@ namespace LendSecure.Pages.Account
             }
             else
             {
-                return RedirectToPage("/Index");
+                // Invalid role - clear session and show error
+                HttpContext.Session.Clear();
+                ErrorMessage = "Invalid account role. Please contact administrator.";
+                return Page();
             }
         }
     }
