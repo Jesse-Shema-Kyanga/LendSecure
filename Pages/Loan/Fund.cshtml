@@ -1,0 +1,70 @@
+﻿@page "{id:Guid}"
+@model LendSecure.Pages.Loan.FundModel
+@{
+    ViewData["Title"] = "Fund Loan";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Fund Loan Request</h3>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">@Model.ErrorMessage</div>
+                    }
+
+                    <h4 class="card-title">@Model.Loan.Purpose</h4>
+                    <h6 class="text-muted mb-4">
+                        Borrower:
+                        @if (!string.IsNullOrEmpty(Model.Loan.Borrower.Profile?.FirstName))
+                        {
+                            @($"{Model.Loan.Borrower.Profile.FirstName} {Model.Loan.Borrower.Profile.LastName}")
+                        }
+                        else
+                        {
+                            @Model.Loan.Borrower.Email
+                        }
+                    </h6>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p><strong>Total Amount:</strong> @Model.Loan.AmountRequested.ToString("N0") @Model.Loan.Currency</p>
+                            <p><strong>Interest Rate:</strong> @Model.Loan.InterestRate%</p>
+                            <p><strong>Term:</strong> @Model.Loan.TermMonths months</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Already Funded:</strong> @Model.FundedAmount.ToString("N0") @Model.Loan.Currency</p>
+                            <p><strong>Remaining Needed:</strong> @Model.RemainingAmount.ToString("N0") @Model.Loan.Currency</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="alert alert-secondary">
+                        <strong>Your Wallet Balance:</strong> @Model.LenderBalance.ToString("N0") @Model.Loan.Currency
+                    </div>
+
+                    <form method="post">
+                        <div class="form-group mb-3">
+                            <label asp-for="AmountToFund" class="form-label">Amount to Fund</label>
+                            <input asp-for="AmountToFund" class="form-control" type="number" step="100" min="100" max="@Math.Min(Model.LenderBalance, Model.RemainingAmount)" />
+                            <span asp-validation-for="AmountToFund" class="text-danger"></span>
+                            <small class="form-text text-muted">You can fund up to @Math.Min(Model.LenderBalance, Model.RemainingAmount).ToString("N0") @Model.Loan.Currency</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 btn-lg">Confirm Funding</button>
+                        <a asp-page="./Browse" class="btn btn-outline-secondary w-100 mt-2">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

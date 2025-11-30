@@ -64,8 +64,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVuZGVyXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Browse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxCcm93c2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Fund.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxGdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/MyFundings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxNeUZ1bmRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Loan/MyLoans.cshtml]
@@ -78,6 +90,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Wallet/Deposit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FsbGV0XERlcG9zaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Wallet/Transactions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FsbGV0XFRyYW5zYWN0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/_ViewImports.cshtml]
