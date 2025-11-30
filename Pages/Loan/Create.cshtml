@@ -1,0 +1,133 @@
+﻿@page
+@model LendSecure.Pages.Loan.CreateModel
+@{
+    ViewData["Title"] = "Request Loan";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">💵 Request a Loan</h4>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">
+                            @Model.ErrorMessage
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                    {
+                        <div class="alert alert-success">
+                            @Model.SuccessMessage
+                            <br />
+                            <a href="/Loan/MyLoans" class="btn btn-sm btn-success mt-2">View My Loans</a>
+                        </div>
+                    }
+
+                    @if (!Model.CanRequestLoan)
+                    {
+                        <div class="alert alert-warning">
+                            <strong>⚠️ KYC Approval Required</strong>
+                            <p class="mb-0">You must have an approved KYC document before requesting a loan.</p>
+                            <a href="/KYC/Upload" class="btn btn-warning btn-sm mt-2">Upload KYC Documents</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <strong>📋 Loan Request Information</strong>
+                            <ul class="mb-0">
+                                <li>Your wallet balance: <strong>@Model.WalletBalance.ToString("N0") RWF</strong></li>
+                                <li>Loans are subject to admin approval</li>
+                                <li>Once approved, lenders can fund your loan</li>
+                                <li>Repayment schedule: 4 weekly installments</li>
+                            </ul>
+                        </div>
+
+                        <form method="post">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Input.AmountRequested" class="form-label">Loan Amount (RWF)</label>
+                                    <input asp-for="Input.AmountRequested" class="form-control" placeholder="e.g., 50000" />
+                                    <span asp-validation-for="Input.AmountRequested" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Input.TermMonths" class="form-label">Loan Term (Weeks)</label>
+                                    <select asp-for="Input.TermMonths" class="form-select">
+                                        <option value="">-- Select Term --</option>
+                                        <option value="1">1 Week</option>
+                                        <option value="2">2 Weeks</option>
+                                        <option value="1">1 Month (4 weeks)</option>
+                                        <option value="2">2 Months (8 weeks)</option>
+                                        <option value="3">3 Months (12 weeks)</option>
+                                    </select>
+                                    <span asp-validation-for="Input.TermMonths" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Input.InterestRate" class="form-label">Interest Rate (%)</label>
+                                <input asp-for="Input.InterestRate" class="form-control" placeholder="e.g., 5.0" />
+                                <span asp-validation-for="Input.InterestRate" class="text-danger"></span>
+                                <small class="text-muted">Typical range: 3% - 10%</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Input.Purpose" class="form-label">Loan Purpose</label>
+                                <textarea asp-for="Input.Purpose" class="form-control" rows="4" placeholder="Explain why you need this loan and how you plan to use it..."></textarea>
+                                <span asp-validation-for="Input.Purpose" class="text-danger"></span>
+                            </div>
+
+                            <!-- Loan Summary -->
+                            <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                    <h6 class="card-title">📊 Loan Summary</h6>
+                                    <p class="mb-1"><strong>Amount:</strong> <span id="summaryAmount">0</span> RWF</p>
+                                    <p class="mb-1"><strong>Interest:</strong> <span id="summaryInterest">0</span>%</p>
+                                    <p class="mb-1"><strong>Total Repayment:</strong> <span id="summaryTotal">0</span> RWF</p>
+                                    <p class="mb-0"><strong>Weekly Payment:</strong> <span id="summaryWeekly">0</span> RWF (4 payments)</p>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">📤 Submit Loan Request</button>
+                                <a href="/Borrower/Dashboard" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Real-time loan calculation
+        function calculateLoan() {
+            const amount = parseFloat(document.querySelector('[name="Input.AmountRequested"]').value) || 0;
+            const rate = parseFloat(document.querySelector('[name="Input.InterestRate"]').value) || 0;
+
+            const interest = (amount * rate) / 100;
+            const total = amount + interest;
+            const weekly = total / 4;
+
+            document.getElementById('summaryAmount').textContent = amount.toLocaleString();
+            document.getElementById('summaryInterest').textContent = rate.toFixed(1);
+            document.getElementById('summaryTotal').textContent = total.toLocaleString();
+            document.getElementById('summaryWeekly').textContent = weekly.toLocaleString();
+        }
+
+        // Attach listeners
+        document.querySelector('[name="Input.AmountRequested"]')?.addEventListener('input', calculateLoan);
+        document.querySelector('[name="Input.InterestRate"]')?.addEventListener('input', calculateLoan);
+
+        // Initial calculation
+        calculateLoan();
+    </script>
+}

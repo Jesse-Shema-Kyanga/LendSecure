@@ -24,6 +24,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jess/source/repos/LendSecure/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jess/source/repos/LendSecure/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Admin/KYCReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cS1lDUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/LoanApprovals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTG9hbkFwcHJvdmFscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Borrower/Dashboard.cshtml]
@@ -54,6 +62,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Lender/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVuZGVyXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/MyLoans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxNeUxvYW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jess/source/repos/LendSecure/Pages/Privacy.cshtml]
