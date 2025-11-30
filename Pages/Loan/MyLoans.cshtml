@@ -1,0 +1,126 @@
+@page
+@model LendSecure.Pages.Loan.MyLoansModel
+@{
+    ViewData["Title"] = "My Loans";
+}
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h4 class="mb-0">📋 My Loan Requests</h4>
+                <p class="mb-0">View all your loan requests and their current status</p>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.MyLoans.Any())
+    {
+        <div class="row">
+            @foreach (var loan in Model.MyLoans)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Loan #@loan.LoanId.ToString().Substring(0, 8)...</h6>
+                            @if (loan.Status == "Pending")
+                            {
+                                <span class="badge bg-warning">⏳ Pending</span>
+                            }
+                            else if (loan.Status == "Approved")
+                            {
+                                <span class="badge bg-info">✓ Approved</span>
+                            }
+                            else if (loan.Status == "Funded")
+                            {
+                                <span class="badge bg-primary">💰 Funded</span>
+                            }
+                            else if (loan.Status == "Repaying")
+                            {
+                                <span class="badge bg-success">📊 Repaying</span>
+                            }
+                            else if (loan.Status == "Completed")
+                            {
+                                <span class="badge bg-secondary">✓ Completed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">@loan.Status</span>
+                            }
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-2"><strong>Amount:</strong> <span class="text-success">@loan.AmountRequested.ToString("N0") @loan.Currency</span></p>
+                            <p class="mb-2"><strong>Purpose:</strong> @loan.Purpose</p>
+                            <p class="mb-2"><strong>Term:</strong> @loan.TermMonths month(s)</p>
+                            <p class="mb-2"><strong>Interest Rate:</strong> @loan.InterestRate.ToString("N2")%</p>
+                            <p class="mb-2"><strong>Created:</strong> @loan.CreatedAt.ToString("MMMM dd, yyyy")</p>
+
+                            @if (loan.Fundings != null && loan.Fundings.Any())
+                            {
+                                var totalFunded = loan.Fundings.Sum(f => f.Amount);
+                                var fundingPercentage = (totalFunded / loan.AmountRequested) * 100;
+                                <hr />
+                                <p class="mb-2"><strong>Funding Progress:</strong></p>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar" style="width: @fundingPercentage.ToString("N0")%" 
+                                         aria-valuenow="@fundingPercentage" aria-valuemin="0" aria-valuemax="100">
+                                        @fundingPercentage.ToString("N0")%
+                                    </div>
+                                </div>
+                                <p class="mb-0"><small>Funded: @totalFunded.ToString("N0") / @loan.AmountRequested.ToString("N0") @loan.Currency</small></p>
+                            }
+
+                            @if (loan.Repayments != null && loan.Repayments.Any())
+                            {
+                                var paidCount = loan.Repayments.Count(r => r.Status == "Paid");
+                                var totalRepayments = loan.Repayments.Count;
+                                <hr />
+                                <p class="mb-0"><strong>Repayments:</strong> @paidCount/@totalRepayments completed</p>
+                            }
+
+                            @if (loan.ApprovedAt.HasValue)
+                            {
+                                <hr />
+                                <p class="mb-0"><small class="text-muted">Approved on: @loan.ApprovedAt.Value.ToString("MMMM dd, yyyy")</small></p>
+                            }
+                        </div>
+                        <div class="card-footer">
+                            @if (loan.Status == "Repaying" || loan.Status == "Funded")
+                            {
+                                <a href="/Repayment/Schedule?loanId=@loan.LoanId" class="btn btn-sm btn-primary">View Repayment Schedule</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h5>No Loans Yet</h5>
+                    <p>You haven't created any loan requests yet. Start by creating your first loan request!</p>
+                    <a href="/Loan/Create" class="btn btn-success">Request a Loan</a>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="/Loan/Create" class="btn btn-success btn-lg">+ Request New Loan</a>
+            <a href="/Borrower/Dashboard" class="btn btn-secondary btn-lg ms-2">← Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
