@@ -1,0 +1,49 @@
+@page
+@model LendSecure.Pages.Wallet.DepositModel
+@{
+    ViewData["Title"] = "Deposit Funds";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">Add Money to Wallet</h3>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                    {
+                        <div class="alert alert-success">@Model.SuccessMessage</div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">@Model.ErrorMessage</div>
+                    }
+
+                    <div class="alert alert-light border">
+                        <strong>Current Balance:</strong> @Model.CurrentBalance.ToString("N0") RWF
+                    </div>
+
+                    <form method="post">
+                        <div class="form-group mb-4">
+                            <label asp-for="Amount" class="form-label">Amount to Deposit</label>
+                            <div class="input-group">
+                                <span class="input-group-text">RWF</span>
+                                <input asp-for="Amount" class="form-control" type="number" min="100" step="100" placeholder="Enter amount" />
+                            </div>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 btn-lg">Deposit Funds</button>
+                        <a asp-page="/Lender/Dashboard" class="btn btn-outline-secondary w-100 mt-2">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
