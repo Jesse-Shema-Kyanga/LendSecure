@@ -1,0 +1,60 @@
+@page
+@model LendSecure.Pages.Loan.BrowseModel
+@{
+    ViewData["Title"] = "Browse Loans";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Browse Approved Loans</h2>
+
+    @if (Model.Loans.Count == 0)
+    {
+        <div class="alert alert-info">No approved loans available for funding at the moment.</div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var loan in Model.Loans)
+            {
+                var fundedAmount = loan.Fundings.Sum(f => f.Amount);
+                var progress = (fundedAmount / loan.AmountRequested) * 100;
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@loan.Purpose</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                by 
+                                @if (!string.IsNullOrEmpty(loan.Borrower.Profile?.FirstName))
+                                {
+                                    @($"{loan.Borrower.Profile.FirstName} {loan.Borrower.Profile.LastName}")
+                                }
+                                else
+                                {
+                                    @loan.Borrower.Email
+                                }
+                            </h6>
+                            <p class="card-text">
+                                <strong>Amount:</strong> @loan.AmountRequested.ToString("N0") @loan.Currency<br />
+                                <strong>Interest:</strong> @loan.InterestRate%<br />
+                                <strong>Term:</strong> @loan.TermMonths months
+                            </p>
+                            
+                            <div class="mb-3">
+                                <label class="small text-muted">Funding Progress: @fundedAmount.ToString("N0") / @loan.AmountRequested.ToString("N0")</label>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: @progress%" aria-valuenow="@progress" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+
+                            <a asp-page="./Fund" asp-route-id="@loan.LoanId" class="btn btn-primary w-100">Fund This Loan</a>
+                        </div>
+                        <div class="card-footer text-muted small">
+                            Posted on @loan.CreatedAt.ToShortDateString()
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

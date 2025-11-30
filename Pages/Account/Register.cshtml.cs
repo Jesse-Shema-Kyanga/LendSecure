@@ -79,7 +79,7 @@ namespace LendSecure.Pages.Account
             };
 
             // Create default wallet for user with demo balance
-            var wallet = new Wallet
+            var wallet = new LendSecure.Models.Wallet
             {
                 WalletId = Guid.NewGuid(),
                 UserId = user.UserId,
