@@ -4,130 +4,203 @@
     ViewData["Title"] = "Upload KYC Documents";
 }
 
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">📄 Upload KYC Documents</h4>
-                </div>
-                <div class="card-body">
-                    <div class="alert alert-info">
-                        <strong>📋 KYC Verification Required</strong>
-                        <p class="mb-0">Please upload a clear photo of your ID (Student ID, National ID, or Passport) to verify your identity. Admin will review and approve within 24 hours.</p>
-                    </div>
+<link rel="stylesheet" href="~/css/kyc-upload.css" asp-append-version="true" />
 
-                    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
-                    {
-                        <div class="alert alert-success">
-                            @Model.SuccessMessage
-                        </div>
-                    }
-
-                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-                    {
-                        <div class="alert alert-danger">
-                            @Model.ErrorMessage
-                        </div>
-                    }
-
-                    <!-- Existing KYC Documents -->
-                    @if (Model.ExistingDocuments.Any())
-                    {
-                        <div class="mb-4">
-                            <h5>Your Submitted Documents</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Document Type</th>
-                                            <th>Submitted On</th>
-                                            <th>Status</th>
-                                            <th>Reviewed By</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var doc in Model.ExistingDocuments)
-                                        {
-                                            <tr>
-                                                <td>@doc.DocType</td>
-                                                <td>@doc.DocId</td>
-                                                <td>
-                                                    @if (doc.Status == "Approved")
-                                                    {
-                                                        <span class="badge bg-success">✓ Approved</span>
-                                                    }
-                                                    else if (doc.Status == "Rejected")
-                                                    {
-                                                        <span class="badge bg-danger">✗ Rejected</span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="badge bg-warning">⏳ Pending Review</span>
-                                                    }
-                                                </td>
-                                                <td>@(doc.ReviewerId.HasValue ? "Admin" : "Not Yet Reviewed")</td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    }
-
-                    <!-- Upload Form -->
-                    <form method="post" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label asp-for="Input.DocType" class="form-label">Document Type</label>
-                            <select asp-for="Input.DocType" class="form-select">
-                                <option value="">-- Select Document Type --</option>
-                                <option value="Student ID">Student ID</option>
-                                <option value="National ID">National ID</option>
-                                <option value="Passport">Passport</option>
-                            </select>
-                            <span asp-validation-for="Input.DocType" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Input.DocumentFile" class="form-label">Upload Document Image</label>
-                            <input asp-for="Input.DocumentFile" class="form-control" type="file" accept="image/*" id="fileInput" />
-                            <span asp-validation-for="Input.DocumentFile" class="text-danger"></span>
-                            <small class="text-muted">Accepted formats: JPG, PNG, JPEG (Max 5MB)</small>
-                        </div>
-
-                        <!-- Image Preview -->
-                        <div class="mb-3" id="imagePreviewContainer" style="display:none;">
-                            <label class="form-label">Preview:</label>
-                            <div class="border p-2">
-                                <img id="imagePreview" src="" alt="Document Preview" style="max-width: 100%; max-height: 400px;" />
-                            </div>
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg">📤 Upload Document</button>
-                            <a href="/@Model.UserRole/Dashboard" class="btn btn-secondary">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="kyc-container">
+    <!-- Page Header -->
+    <div class="page-header-card">
+        <div class="header-icon-box">
+            <i class="bi bi-person-badge"></i>
+            <!-- Fallback icon -->
+            🪪
         </div>
+        <div class="header-content">
+            <h2>Upload KYC Documents</h2>
+            <p>Verify your identity to secure your account.</p>
+        </div>
+    </div>
+
+    <!-- Info Alert -->
+    <div class="info-alert">
+        <div class="info-icon">
+            <i class="bi bi-info-circle-fill"></i>
+            ℹ️
+        </div>
+        <div class="info-content">
+            <h5>KYC Verification Required</h5>
+            <p>Please upload a clear photo of your ID (Student ID, National ID, or Passport) to verify your identity. Admin will review and approve within 24 hours.</p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show mb-4">
+            @Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show mb-4">
+            @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Submitted Documents Section -->
+    <div class="documents-section">
+        <h5 class="section-title">Your Submitted Documents</h5>
+        @if (Model.ExistingDocuments.Any())
+        {
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Document Type</th>
+                            <th>Submitted On</th>
+                            <th>Status</th>
+                            <th>Reviewed By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var doc in Model.ExistingDocuments)
+                        {
+                            <tr>
+                                <td><strong>@doc.DocType</strong></td>
+                                <td>@doc.DocId</td>
+                                <td>
+                                    @if (doc.Status == "Approved")
+                                    {
+                                        <span class="status-badge status-approved">
+                                            <span>✓</span> Approved
+                                        </span>
+                                    }
+                                    else if (doc.Status == "Rejected")
+                                    {
+                                        <span class="status-badge status-rejected">
+                                            <span>✗</span> Rejected
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status-badge status-pending">
+                                            <span>⏳</span> Pending Review
+                                        </span>
+                                    }
+                                </td>
+                                <td>@(doc.ReviewerId.HasValue ? "Admin" : "Not Yet Reviewed")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted">No documents submitted yet.</p>
+        }
+    </div>
+
+    <!-- Upload Form -->
+    <div class="upload-card">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label asp-for="Input.DocType" class="form-label">Document Type</label>
+                <select asp-for="Input.DocType" class="form-select">
+                    <option value="">-- Select Document Type --</option>
+                    <option value="Student ID">Student ID</option>
+                    <option value="National ID">National ID</option>
+                    <option value="Passport">Passport</option>
+                </select>
+                <span asp-validation-for="Input.DocType" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Upload Document Image</label>
+                <div class="file-upload-area" id="dropZone">
+                    <input asp-for="Input.DocumentFile" type="file" accept="image/*" id="fileInput" class="file-input-hidden" />
+                    <div class="upload-icon">
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        ☁️
+                    </div>
+                    <div class="upload-text">
+                        <span class="upload-link">Choose file</span> or drag and drop
+                    </div>
+                    <div class="upload-hint">
+                        Accepted formats: JPG, PNG, JPEG (Max 5MB)
+                    </div>
+                </div>
+                <span asp-validation-for="Input.DocumentFile" class="text-danger mt-2 d-block"></span>
+            </div>
+
+            <!-- Image Preview -->
+            <div class="preview-container" id="imagePreviewContainer" style="display:none;">
+                <p class="mb-2 text-muted small">Selected File Preview:</p>
+                <img id="imagePreview" src="" alt="Document Preview" class="preview-image" />
+            </div>
+
+            <div class="action-buttons">
+                <a href="/@Model.UserRole/Dashboard" class="btn-cancel">Cancel</a>
+                <button type="submit" class="btn-upload">
+                    <i class="bi bi-file-earmark-arrow-up"></i>
+                    📄 Upload Document
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
-        // Image preview
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('imagePreview').src = e.target.result;
-                    document.getElementById('imagePreviewContainer').style.display = 'block';
-                }
-                reader.readAsDataURL(file);
+        // Image preview and Drag & Drop visual feedback
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const previewContainer = document.getElementById('imagePreviewContainer');
+        const previewImage = document.getElementById('imagePreview');
+
+        // Handle file selection
+        fileInput.addEventListener('change', function(e) {
+            handleFiles(e.target.files);
+        });
+
+        // Drag & Drop events
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#2563EB';
+            dropZone.style.backgroundColor = '#EFF6FF';
+        });
+
+        dropZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#D1D5DB';
+            dropZone.style.backgroundColor = '#F9FAFB';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#D1D5DB';
+            dropZone.style.backgroundColor = '#F9FAFB';
+            
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                handleFiles(e.dataTransfer.files);
             }
         });
+
+        function handleFiles(files) {
+            if (files && files[0]) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewContainer.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
     </script>
 }

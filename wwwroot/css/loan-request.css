@@ -1,0 +1,203 @@
+/* Request Loan Page Styles */
+
+.loan-request-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.loan-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: none;
+    padding: 2rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-icon {
+    font-size: 2.5rem;
+    color: #4F46E5;
+    /* Indigo-600 */
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: #6B7280;
+    font-size: 1rem;
+}
+
+/* Info Box */
+.info-box {
+    background-color: #EFF6FF;
+    /* Blue-50 */
+    border: 1px solid #BFDBFE;
+    /* Blue-200 */
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-title {
+    color: #1E40AF;
+    /* Blue-800 */
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1E40AF;
+    /* Blue-800 */
+    font-size: 0.95rem;
+}
+
+.info-list li::before {
+    content: "•";
+    color: #2563EB;
+    /* Blue-600 */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.text-muted {
+    font-size: 0.85rem;
+    color: #9CA3AF !important;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Summary Card */
+.summary-card {
+    background-color: #F9FAFB;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid #F3F4F6;
+}
+
+.summary-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #4B5563;
+}
+
+.summary-row.total {
+    border-top: 1px solid #E5E7EB;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    font-weight: 700;
+    color: #111827;
+    font-size: 1rem;
+}
+
+.summary-row.total .value {
+    color: #4F46E5;
+}
+
+.summary-row.sub-text {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-top: -0.5rem;
+}
+
+/* Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    background-color: #10B981;
+    /* Emerald-500 */
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    transition: all 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-cancel {
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #374151;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #F9FAFB;
+    border-color: #D1D5DB;
+}

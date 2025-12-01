@@ -4,22 +4,26 @@
     ViewData["Title"] = "Loan Approvals";
 }
 
-<div class="container mt-4">
-    <div class="row mb-3">
-        <div class="col-12">
-            <h2>💵 Loan Approval Management</h2>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Loan Approvals</li>
-                </ol>
-            </nav>
+<link rel="stylesheet" href="~/css/admin-loan-approval.css" asp-append-version="true" />
+
+<div class="loan-approval-container">
+    <!-- Page Header -->
+    <div class="page-header-row">
+        <div class="header-title">
+            <i class="bi bi-file-earmark-text"></i>
+            <h2>Loan Approval Management</h2>
         </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">Loan Approvals</li>
+            </ol>
+        </nav>
     </div>
 
     @if (!string.IsNullOrEmpty(Model.SuccessMessage))
     {
-        <div class="alert alert-success alert-dismissible fade show">
+        <div class="alert alert-success alert-dismissible fade show mb-4">
             @Model.SuccessMessage
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
@@ -27,117 +31,115 @@
 
     @if (!string.IsNullOrEmpty(Model.ErrorMessage))
     {
-        <div class="alert alert-danger alert-dismissible fade show">
+        <div class="alert alert-danger alert-dismissible fade show mb-4">
             @Model.ErrorMessage
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
     <!-- Filter Tabs -->
-    <ul class="nav nav-tabs mb-3">
-        <li class="nav-item">
-            <a class="nav-link @(Model.Filter == "Pending" ? "active" : "")" href="?filter=Pending">
-                ⏳ Pending (@Model.PendingCount)
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link @(Model.Filter == "Approved" ? "active" : "")" href="?filter=Approved">
-                ✓ Approved (@Model.ApprovedCount)
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link @(Model.Filter == "Rejected" ? "active" : "")" href="?filter=Rejected">
-                ✗ Rejected (@Model.RejectedCount)
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link @(Model.Filter == "All" ? "active" : "")" href="?filter=All">
-                All Loans (@Model.TotalCount)
-            </a>
-        </li>
-    </ul>
+    <div class="filter-tabs">
+        <a href="?filter=Pending" class="filter-tab @(Model.Filter == "Pending" ? "active" : "")">
+            <i class="bi bi-hourglass-split"></i> Pending (@Model.PendingCount)
+        </a>
+        <a href="?filter=Approved" class="filter-tab @(Model.Filter == "Approved" ? "active" : "")">
+            <i class="bi bi-check-circle"></i> Approved (@Model.ApprovedCount)
+        </a>
+        <a href="?filter=Rejected" class="filter-tab @(Model.Filter == "Rejected" ? "active" : "")">
+            <i class="bi bi-x-circle"></i> Rejected (@Model.RejectedCount)
+        </a>
+        <a href="?filter=All" class="filter-tab @(Model.Filter == "All" ? "active" : "")">
+            <i class="bi bi-list-ul"></i> All Loans (@Model.TotalCount)
+        </a>
+    </div>
 
     <!-- Loan Requests List -->
     @if (Model.LoanRequests.Any())
     {
-        <div class="row">
+        <div class="row g-4">
             @foreach (var loan in Model.LoanRequests)
             {
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 @(loan.Status == "Pending" ? "border-warning" : loan.Status == "Approved" ? "border-success" : "border-danger")">
-                        <div class="card-header @(loan.Status == "Pending" ? "bg-warning" : loan.Status == "Approved" ? "bg-success text-white" : "bg-danger text-white")">
-                            <strong>Loan Request</strong>
-                            <span class="float-end badge @(loan.Status == "Pending" ? "bg-dark" : "bg-light text-dark")">
-                                @loan.Status
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <!-- Borrower Info -->
-                            <h5 class="card-title">@loan.Borrower.Email</h5>
-                            <p class="mb-1"><small class="text-muted">Borrower Role: @loan.Borrower.Role</small></p>
-
-                            <hr />
-
-                            <!-- Loan Details -->
-                            <div class="mb-2">
-                                <strong>💰 Amount:</strong> @loan.AmountRequested.ToString("N0") RWF
-                            </div>
-                            <div class="mb-2">
-                                <strong>📅 Term:</strong> @loan.TermMonths month@(loan.TermMonths > 1 ? "s" : "")
-                            </div>
-                            <div class="mb-2">
-                                <strong>📊 Interest Rate:</strong> @loan.InterestRate%
-                            </div>
-                            <div class="mb-2">
-                                <strong>💵 Total Repayment:</strong> @((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)).ToString("N0")) RWF
-                            </div>
-                            <div class="mb-2">
-                                <strong>📆 Weekly Payment:</strong> @(((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)) / 4).ToString("N0")) RWF
-                            </div>
-
-                            <hr />
-
-                            <!-- Purpose -->
-                            <div class="mb-2">
-                                <strong>📝 Purpose:</strong>
-                                <p class="text-muted small">@loan.Purpose</p>
-                            </div>
-
-                            <!-- Timestamps -->
-                            <div class="mb-2">
-                                <small class="text-muted">
-                                    <strong>Requested:</strong> @loan.CreatedAt.ToString("MMM dd, yyyy HH:mm")
-                                </small>
-                            </div>
-
-                            @if (loan.Status != "Pending")
-                            {
-                                <div class="mb-2">
-                                    <small class="text-muted">
-                                        <strong>Reviewed:</strong> @(loan.ApprovedAt?.ToString("MMM dd, yyyy HH:mm") ?? "N/A")
-                                    </small>
-                                </div>
-                            }
-
-                            <!-- Action Buttons -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="loan-card">
+                        <div class="loan-header">
+                            <span class="loan-title">Loan Request</span>
                             @if (loan.Status == "Pending")
                             {
-                                <hr />
-                                <form method="post" class="d-grid gap-2">
+                                <span class="status-badge status-pending">Pending</span>
+                            }
+                            else if (loan.Status == "Approved")
+                            {
+                                <span class="status-badge status-approved">Approved</span>
+                            }
+                            else
+                            {
+                                <span class="status-badge status-rejected">Rejected</span>
+                            }
+                        </div>
+
+                        <div class="borrower-info">
+                            <div class="borrower-email">@loan.Borrower.Email</div>
+                            <div class="borrower-role">Borrower Role: @loan.Borrower.Role</div>
+                        </div>
+
+                        <div class="loan-details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="bi bi-cash"></i> Amount:</span>
+                                <span class="detail-value">@loan.AmountRequested.ToString("N0") RWF</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="bi bi-calendar"></i> Term:</span>
+                                <span class="detail-value">@loan.TermMonths months</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="bi bi-percent"></i> Interest Rate:</span>
+                                <span class="detail-value">@loan.InterestRate%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="bi bi-wallet2"></i> Total Repayment:</span>
+                                <span class="detail-value">@((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)).ToString("N0")) RWF</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="bi bi-calendar-week"></i> Weekly Payment:</span>
+                                <span class="detail-value">@(((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)) / 4).ToString("N0")) RWF</span>
+                            </div>
+                        </div>
+
+                        <div class="purpose-section">
+                            <span class="purpose-label"><i class="bi bi-file-text"></i> Purpose:</span>
+                            <p class="purpose-text">@loan.Purpose</p>
+                        </div>
+
+                        <div class="timestamps">
+                            <div class="timestamp-row">
+                                <span>Requested:</span>
+                                <span>@loan.CreatedAt.ToString("MMM dd, yyyy HH:mm")</span>
+                            </div>
+                            @if (loan.Status != "Pending")
+                            {
+                                <div class="timestamp-row">
+                                    <span>Reviewed:</span>
+                                    <span>@(loan.ApprovedAt?.ToString("MMM dd, yyyy HH:mm") ?? "N/A")</span>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="action-buttons">
+                            @if (loan.Status == "Pending")
+                            {
+                                <form method="post">
                                     <input type="hidden" name="loanId" value="@loan.LoanId" />
-                                    <button type="submit" name="action" value="approve" class="btn btn-success">
-                                        ✓ Approve Loan
+                                    <button type="submit" name="action" value="approve" class="btn-approve">
+                                        Approve Loan
                                     </button>
-                                    <button type="submit" name="action" value="reject" class="btn btn-danger">
-                                        ✗ Reject Loan
+                                    <button type="submit" name="action" value="reject" class="btn-reject">
+                                        Reject Loan
                                     </button>
                                 </form>
                             }
                             else
                             {
-                                <div class="mt-2">
-                                    <span class="badge bg-secondary">Decision Made</span>
-                                </div>
+                                <span class="decision-badge">Decision Made</span>
                             }
                         </div>
                     </div>
@@ -145,17 +147,15 @@
             }
         </div>
 
-        <!-- Pagination Info -->
-        <div class="row mt-3">
+        <div class="row mt-4">
             <div class="col-12 text-center">
-                <p class="text-muted">Showing @Model.LoanRequests.Count loan request(s)</p>
+                <p class="text-muted small">Showing @Model.LoanRequests.Count loan request(s)</p>
             </div>
         </div>
     }
     else
     {
-        <div class="alert alert-info">
-            <strong>No loan requests found.</strong>
+        <div class="empty-state">
             @if (Model.Filter == "Pending")
             {
                 <p class="mb-0">All loan requests have been reviewed!</p>

@@ -1,0 +1,238 @@
+/* My Loans Page Styles */
+
+.my-loans-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Page Header */
+.page-header-card {
+    background-color: #EFF6FF;
+    /* Blue-50 */
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.header-icon-box {
+    background-color: #3B82F6;
+    /* Blue-500 */
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.header-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.header-content p {
+    color: #6B7280;
+    margin-bottom: 0;
+}
+
+/* Loan Cards */
+.loan-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F3F4F6;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loan-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.loan-id {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.status-approved {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.status-funded {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.status-repaying {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.status-completed {
+    background-color: #F3F4F6;
+    color: #374151;
+}
+
+.status-rejected {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+/* Loan Details Grid */
+.loan-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: #6B7280;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    color: #111827;
+    font-weight: 500;
+}
+
+/* Progress Section */
+.progress-section {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #F3F4F6;
+}
+
+.progress-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.progress {
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background-color: #10B981;
+    /* Emerald-500 */
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #6B7280;
+}
+
+.percentage {
+    color: #10B981;
+    font-weight: 600;
+}
+
+/* Action Buttons */
+.btn-view-schedule {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #3B82F6;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-view-schedule:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+.page-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-new-loan {
+    background-color: #10B981;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-new-loan:hover {
+    background-color: #059669;
+    color: white;
+}
+
+.btn-back {
+    background-color: white;
+    border: 1px solid #D1D5DB;
+    color: #374151;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-back:hover {
+    background-color: #F9FAFB;
+    color: #111827;
+}

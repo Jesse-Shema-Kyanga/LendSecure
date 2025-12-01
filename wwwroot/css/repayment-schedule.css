@@ -1,0 +1,233 @@
+/* Repayment Schedule Page Styles */
+
+.repayment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Page Header */
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.header-icon {
+    font-size: 2rem;
+    color: #3B82F6;
+    /* Blue-500 */
+    background: #EFF6FF;
+    /* Blue-50 */
+    padding: 0.5rem;
+    border-radius: 8px;
+    line-height: 1;
+}
+
+.header-text h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.header-text p {
+    color: #6B7280;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.btn-back-loans {
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    color: #374151;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-back-loans:hover {
+    background-color: #F9FAFB;
+    border-color: #D1D5DB;
+    color: #111827;
+}
+
+/* Loan Details Card */
+.details-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+    margin-bottom: 2rem;
+}
+
+.details-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.detail-item span {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Wallet Alert */
+.wallet-alert {
+    background-color: #EFF6FF;
+    /* Blue-50 */
+    border: 1px solid #BFDBFE;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    color: #1E40AF;
+}
+
+.wallet-icon {
+    font-size: 1.25rem;
+}
+
+.wallet-text {
+    font-weight: 500;
+}
+
+.wallet-text strong {
+    font-weight: 700;
+}
+
+/* Schedule Card */
+.schedule-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+}
+
+.schedule-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6B7280;
+    font-weight: 700;
+    border-bottom: none;
+    padding: 1rem 0;
+}
+
+.table td {
+    padding: 1.25rem 0;
+    vertical-align: middle;
+    border-bottom: 1px solid #F3F4F6;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+    color: #111827;
+}
+
+/* Status Pills */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-paid {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.status-overdue {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+/* Action Buttons */
+.btn-pay {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-pay:hover:not(:disabled) {
+    background-color: #2563EB;
+    transform: translateY(-1px);
+}
+
+.btn-pay:disabled {
+    background-color: #9CA3AF;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-pay-danger {
+    background-color: #EF4444;
+}
+
+.btn-pay-danger:hover:not(:disabled) {
+    background-color: #DC2626;
+}

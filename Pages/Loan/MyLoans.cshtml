@@ -4,19 +4,25 @@
     ViewData["Title"] = "My Loans";
 }
 
-<div class="container mt-4">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="alert alert-info">
-                <h4 class="mb-0">📋 My Loan Requests</h4>
-                <p class="mb-0">View all your loan requests and their current status</p>
-            </div>
+<link rel="stylesheet" href="~/css/my-loans.css" asp-append-version="true" />
+
+<div class="my-loans-container">
+    <!-- Page Header -->
+    <div class="page-header-card">
+        <div class="header-icon-box">
+            <i class="bi bi-card-list"></i>
+            <!-- Fallback icon if Bootstrap Icons not loaded -->
+            📋
+        </div>
+        <div class="header-content">
+            <h2>My Loan Requests</h2>
+            <p>View all your loan requests and their current status.</p>
         </div>
     </div>
 
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
             @TempData["SuccessMessage"]
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -24,103 +30,96 @@
 
     @if (Model.MyLoans.Any())
     {
-        <div class="row">
+        <div class="row g-4">
             @foreach (var loan in Model.MyLoans)
             {
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0">Loan #@loan.LoanId.ToString().Substring(0, 8)...</h6>
-                            @if (loan.Status == "Pending")
-                            {
-                                <span class="badge bg-warning">⏳ Pending</span>
+                <div class="col-md-6">
+                    <div class="loan-card">
+                        <div class="loan-card-header">
+                            <span class="loan-id">Loan #@loan.LoanId.ToString().Substring(0, 8)...</span>
+                            @{
+                                var statusClass = loan.Status switch
+                                {
+                                    "Pending" => "status-pending",
+                                    "Approved" => "status-approved",
+                                    "Funded" => "status-funded",
+                                    "Repaying" => "status-repaying",
+                                    "Completed" => "status-completed",
+                                    "Rejected" => "status-rejected",
+                                    _ => "status-completed"
+                                };
                             }
-                            else if (loan.Status == "Approved")
-                            {
-                                <span class="badge bg-info">✓ Approved</span>
-                            }
-                            else if (loan.Status == "Funded")
-                            {
-                                <span class="badge bg-primary">💰 Funded</span>
-                            }
-                            else if (loan.Status == "Repaying")
-                            {
-                                <span class="badge bg-success">📊 Repaying</span>
-                            }
-                            else if (loan.Status == "Completed")
-                            {
-                                <span class="badge bg-secondary">✓ Completed</span>
-                            }
-                            else if (loan.Status == "Rejected")
-                            {
-                                <span class="badge bg-danger">✗ Rejected</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-secondary">@loan.Status</span>
-                            }
+                            <span class="status-badge @statusClass">@loan.Status</span>
                         </div>
-                        <div class="card-body">
-                            <p class="mb-2"><strong>Amount:</strong> <span class="text-success">@loan.AmountRequested.ToString("N0") @loan.Currency</span></p>
-                            <p class="mb-2"><strong>Purpose:</strong> @loan.Purpose</p>
-                            <p class="mb-2"><strong>Term:</strong> @loan.TermMonths month(s)</p>
-                            <p class="mb-2"><strong>Interest Rate:</strong> @loan.InterestRate.ToString("N2")%</p>
-                            <p class="mb-2"><strong>Total Repayment:</strong> @((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)).ToString("N0")) RWF</p>
-                            <p class="mb-2"><strong>Created:</strong> @loan.CreatedAt.ToString("MMMM dd, yyyy")</p>
 
-                            @if (loan.Status == "Approved")
-                            {
-                                <div class="alert alert-success mt-2 mb-2">
-                                    <small><strong>✓ Approved!</strong> Your loan is now available for lenders to fund.</small>
-                                </div>
+                        <div class="loan-details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Amount:</span>
+                                <span class="detail-value">@loan.AmountRequested.ToString("N0") @loan.Currency</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Purpose:</span>
+                                <span class="detail-value">@loan.Purpose</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Term:</span>
+                                <span class="detail-value">@loan.TermMonths month(s)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Interest Rate:</span>
+                                <span class="detail-value">@loan.InterestRate.ToString("N2")%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Total Repayment:</span>
+                                <span class="detail-value">@((loan.AmountRequested + (loan.AmountRequested * loan.InterestRate / 100)).ToString("N0")) RWF</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Created:</span>
+                                <span class="detail-value">@loan.CreatedAt.ToString("MMMM dd, yyyy")</span>
+                            </div>
+                        </div>
+
+                        <!-- Funding Progress -->
+                        <div class="progress-section">
+                            <span class="progress-label">Funding Progress:</span>
+                            @{
+                                var totalFunded = loan.Fundings?.Sum(f => f.Amount) ?? 0;
+                                var fundingPercentage = loan.AmountRequested > 0 ? (totalFunded / loan.AmountRequested) * 100 : 0;
                             }
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" 
+                                     style="width: @Math.Min(fundingPercentage, 100).ToString("N0")%"
+                                     aria-valuenow="@fundingPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress-stats">
+                                <span>Funded: @totalFunded.ToString("N0") / @loan.AmountRequested.ToString("N0") @loan.Currency</span>
+                                <span class="percentage">@Math.Min(fundingPercentage, 100).ToString("N0")%</span>
+                            </div>
+                        </div>
 
-                            @if (loan.Status == "Rejected")
-                            {
-                                <div class="alert alert-danger mt-2 mb-2">
-                                    <small><strong>✗ Rejected</strong> - Contact admin for more information.</small>
-                                </div>
-                            }
-
-                            @if (loan.Fundings != null && loan.Fundings.Any())
-                            {
-                                var totalFunded = loan.Fundings.Sum(f => f.Amount);
-                                var fundingPercentage = (totalFunded / loan.AmountRequested) * 100;
-                                <hr />
-                                <p class="mb-2"><strong>Funding Progress:</strong></p>
-                                <div class="progress mb-2">
-                                    <div class="progress-bar @(fundingPercentage >= 100 ? "bg-success" : "bg-primary")"
-                                         role="progressbar"
-                                         style="width: @Math.Min(fundingPercentage, 100).ToString("N0")%"
-                                         aria-valuenow="@fundingPercentage"
-                                         aria-valuemin="0"
-                                         aria-valuemax="100">
-                                        @Math.Min(fundingPercentage, 100).ToString("N0")%
-                                    </div>
-                                </div>
-                                <p class="mb-0"><small>Funded: @totalFunded.ToString("N0") / @loan.AmountRequested.ToString("N0") @loan.Currency</small></p>
-                            }
-
-                            @if (loan.Repayments != null && loan.Repayments.Any())
-                            {
-                                var paidCount = loan.Repayments.Count(r => r.Status == "Paid");
-                                var totalRepayments = loan.Repayments.Count;
-                                <hr />
-                                <p class="mb-0"><strong>Repayments:</strong> @paidCount/@totalRepayments completed</p>
-                            }
-
+                        <!-- Repayments Info -->
+                        @if (loan.Repayments != null && loan.Repayments.Any())
+                        {
+                            var paidCount = loan.Repayments.Count(r => r.Status == "Paid");
+                            var totalRepayments = loan.Repayments.Count;
+                            <div class="mt-3 d-flex justify-content-between align-items-center" style="font-size: 0.85rem;">
+                                <span class="fw-bold text-dark">Repayments:</span>
+                                <span class="text-muted">@paidCount/@totalRepayments completed</span>
+                            </div>
+                            
                             @if (loan.ApprovedAt.HasValue)
                             {
-                                <hr />
-                                <p class="mb-0"><small class="text-muted">Approved on: @loan.ApprovedAt.Value.ToString("MMMM dd, yyyy")</small></p>
+                                <div class="mt-1 text-muted" style="font-size: 0.75rem;">
+                                    Approved on: @loan.ApprovedAt.Value.ToString("MMMM dd, yyyy")
+                                </div>
                             }
-                        </div>
-                        <div class="card-footer">
-                            @if (loan.Status == "Funded" || loan.Status == "Repaying")
-                            {
-                                <a href="/Repayment/Schedule?loanId=@loan.LoanId" class="btn btn-sm btn-primary">View Repayment Schedule</a>
-                            }
-                        </div>
+                        }
+
+                        <!-- Action Button -->
+                        @if (loan.Status == "Funded" || loan.Status == "Repaying")
+                        {
+                            <a href="/Repayment/Schedule?loanId=@loan.LoanId" class="btn-view-schedule">View Repayment Schedule</a>
+                        }
                     </div>
                 </div>
             }
@@ -128,21 +127,21 @@
     }
     else
     {
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-info">
-                    <h5>No Loans Yet</h5>
-                    <p>You haven't created any loan requests yet. Start by creating your first loan request!</p>
-                    <a href="/Loan/Create" class="btn btn-success">Request a Loan</a>
-                </div>
+        <div class="text-center py-5">
+            <div class="alert alert-info d-inline-block">
+                <h5>No Loans Yet</h5>
+                <p>You haven't created any loan requests yet. Start by creating your first loan request!</p>
             </div>
         </div>
     }
 
-    <div class="row mt-4">
-        <div class="col-12 text-center">
-            <a href="/Loan/Create" class="btn btn-success btn-lg">+ Request New Loan</a>
-            <a href="/Borrower/Dashboard" class="btn btn-secondary btn-lg ms-2">← Back to Dashboard</a>
-        </div>
+    <!-- Page Actions -->
+    <div class="page-actions">
+        <a href="/Loan/Create" class="btn-new-loan">
+            <span>+</span> Request New Loan
+        </a>
+        <a href="/Borrower/Dashboard" class="btn-back">
+            <span>←</span> Back to Dashboard
+        </a>
     </div>
 </div>

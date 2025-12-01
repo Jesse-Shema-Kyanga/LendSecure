@@ -1,0 +1,253 @@
+/* Admin Audit Logs Page Styles */
+
+.audit-logs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Page Header */
+.page-header-row {
+    margin-bottom: 2rem;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-title i {
+    font-size: 1.75rem;
+    color: #4B5563;
+}
+
+.header-title h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #3B82F6;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6B7280;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6B7280;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1;
+}
+
+/* Filter Section */
+.filter-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+    margin-bottom: 2rem;
+}
+
+.filter-form {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.filter-group {
+    flex: 1;
+}
+
+.filter-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    font-size: 0.95rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    background-color: #F9FAFB;
+    color: #111827;
+    transition: all 0.2s;
+}
+
+.form-select:focus {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+.btn-apply {
+    background-color: #1E40AF;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+    height: 42px;
+    /* Match select height */
+    width: 100%;
+}
+
+.btn-apply:hover {
+    background-color: #1E3A8A;
+}
+
+/* Audit Logs Table */
+.table-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.table-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #F9FAFB;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #E5E7EB;
+    text-align: left;
+}
+
+.table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover td {
+    background-color: #F9FAFB;
+}
+
+.text-muted {
+    color: #6B7280 !important;
+}
+
+/* Badges */
+.badge-action {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #E5E7EB;
+    color: #374151;
+}
+
+.badge-login {
+    background-color: #E5E7EB;
+    color: #1F2937;
+}
+
+.badge-kyc {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.badge-loan {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.badge-wallet {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.badge-registration {
+    background-color: #F3F4F6;
+    color: #4B5563;
+}
+
+.ip-address {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #111827;
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #6B7280;
+}

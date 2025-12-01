@@ -4,186 +4,184 @@
     ViewData["Title"] = "Repayment Schedule";
 }
 
-<div class="container mt-5">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>📅 Repayment Schedule</h2>
-                <a href="/Loan/MyLoans" class="btn btn-outline-secondary">← Back to My Loans</a>
-            </div>
-        </div>
-    </div>
+<link rel="stylesheet" href="~/css/repayment-schedule.css" asp-append-version="true" />
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show">
-            @TempData["SuccessMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <div class="alert alert-danger alert-dismissible fade show">
-            @Model.ErrorMessage
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
+<div class="repayment-container">
     @if (Model.Loan == null)
     {
         <div class="alert alert-warning">
             <h5>Loan not found</h5>
             <p class="mb-0">The requested loan could not be found or you don't have access to it.</p>
+            <a href="/Loan/MyLoans" class="btn btn-warning mt-2">Back to My Loans</a>
         </div>
     }
     else
     {
-        <!-- Loan Summary Card -->
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Loan Details</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Purpose:</strong></p>
-                                <p>@Model.Loan.Purpose</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Principal:</strong></p>
-                                <p class="fs-5">@Model.Loan.AmountRequested.ToString("N0") RWF</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Interest Rate:</strong></p>
-                                <p class="fs-5">@Model.Loan.InterestRate%</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Total Interest:</strong></p>
-                                <p class="fs-5 text-warning">@Model.TotalInterest.ToString("N0") RWF</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Total Repayment:</strong></p>
-                                <p class="fs-4 text-success">@Model.TotalRepayment.ToString("N0") RWF</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Payments Made:</strong></p>
-                                <p class="fs-5">@Model.PaidCount / 4</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Amount Paid:</strong></p>
-                                <p class="fs-5 text-success">@Model.TotalPaid.ToString("N0") RWF</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p class="mb-2"><strong>Remaining:</strong></p>
-                                <p class="fs-5 text-danger">@Model.TotalRemaining.ToString("N0") RWF</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Page Header -->
+        <div class="page-header-row">
+            <div class="header-left">
+                <div class="header-icon">
+                    <i class="bi bi-calendar-check"></i>
+                    <!-- Fallback icon -->
+                    🧾
+                </div>
+                <div class="header-text">
+                    <h2>Repayment Schedule</h2>
+                    <p>Loan ID: #@Model.Loan.LoanId.ToString()</p>
+                </div>
+            </div>
+            <a href="/Loan/MyLoans" class="btn-back-loans">
+                <span>←</span> Back to My Loans
+            </a>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show mb-4">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger alert-dismissible fade show mb-4">
+                @Model.ErrorMessage
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <!-- Loan Details Card -->
+        <div class="details-card">
+            <h5 class="details-title">Loan Details</h5>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <label>Purpose</label>
+                    <span>@Model.Loan.Purpose</span>
+                </div>
+                <div class="detail-item">
+                    <label>Principal</label>
+                    <span>@Model.Loan.AmountRequested.ToString("N0") RWF</span>
+                </div>
+                <div class="detail-item">
+                    <label>Interest Rate</label>
+                    <span>@Model.Loan.InterestRate.ToString("N2")%</span>
+                </div>
+                <div class="detail-item">
+                    <label>Total Interest</label>
+                    <span>@Model.TotalInterest.ToString("N0") RWF</span>
+                </div>
+                <div class="detail-item">
+                    <label>Total Repayment</label>
+                    <span>@Model.TotalRepayment.ToString("N0") RWF</span>
+                </div>
+                <div class="detail-item">
+                    <label>Payments Made</label>
+                    <span>@Model.PaidCount / 4</span>
+                </div>
+                <div class="detail-item">
+                    <label>Amount Paid</label>
+                    <span>@Model.TotalPaid.ToString("N0") RWF</span>
+                </div>
+                <div class="detail-item">
+                    <label>Remaining</label>
+                    <span>@Model.TotalRemaining.ToString("N0") RWF</span>
                 </div>
             </div>
         </div>
 
-        <!-- Wallet Balance Warning -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="alert alert-@(Model.WalletBalance >= Model.WeeklyPayment ? "info" : "warning")">
-                    <strong>Your Wallet Balance:</strong> @Model.WalletBalance.ToString("N0") RWF
-                    @if (Model.WalletBalance < Model.WeeklyPayment)
-                    {
-                        <br />
-                        <span class="text-danger">⚠️ Insufficient balance for next payment. Please deposit funds.</span>
-                        <a href="/Wallet/Deposit" class="btn btn-sm btn-warning ms-2">Deposit Now</a>
-                    }
-                </div>
+        <!-- Wallet Balance Alert -->
+        <div class="wallet-alert">
+            <div class="wallet-icon">
+                <i class="bi bi-wallet2"></i>
+                <!-- Fallback icon -->
+                💳
             </div>
+            <div class="wallet-text">
+                Your Wallet Balance: <strong>@Model.WalletBalance.ToString("N0") RWF</strong>
+            </div>
+            @if (Model.WalletBalance < Model.WeeklyPayment)
+            {
+                <span class="text-danger ms-3" style="font-size: 0.9rem;">
+                    ⚠️ Insufficient balance for next payment.
+                </span>
+                <a href="/Wallet/Deposit" class="btn btn-sm btn-warning ms-auto">Deposit Now</a>
+            }
         </div>
 
-        <!-- Repayment Schedule Table -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card shadow">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0">Payment Schedule (4 Weekly Installments)</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>Week</th>
-                                        <th>Due Date</th>
-                                        <th>Principal</th>
-                                        <th>Interest</th>
-                                        <th>Total Payment</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @{
-                                        int weekNumber = 1;
-                                    }
-                                    @foreach (var repayment in Model.Repayments)
+        <!-- Payment Schedule Table -->
+        <div class="schedule-card">
+            <h5 class="schedule-title">Payment Schedule (4 Weekly Installments)</h5>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Due Date</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Payment</th>
+                            <th>Status</th>
+                            <th class="text-end">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int weekNumber = 1;
+                        }
+                        @foreach (var repayment in Model.Repayments)
+                        {
+                            var totalPayment = repayment.PrincipalAmount + repayment.InterestAmount;
+                            var isOverdue = repayment.Status == "Pending" && repayment.ScheduledDate < DateTime.UtcNow.Date;
+
+                            <tr>
+                                <td><strong>Week @weekNumber</strong></td>
+                                <td>@repayment.ScheduledDate.ToString("MMM dd, yyyy")</td>
+                                <td>@repayment.PrincipalAmount.ToString("N0") RWF</td>
+                                <td>@repayment.InterestAmount.ToString("N0") RWF</td>
+                                <td class="fw-bold">@totalPayment.ToString("N0") RWF</td>
+                                <td>
+                                    @if (repayment.Status == "Paid")
                                     {
-                                        var totalPayment = repayment.PrincipalAmount + repayment.InterestAmount;
-                                        var isOverdue = repayment.Status == "Pending" && repayment.ScheduledDate < DateTime.UtcNow.Date;
-
-                                        <tr class="@(repayment.Status == "Paid" ? "table-success" : isOverdue ? "table-danger" : "")">
-                                            <td><strong>Week @weekNumber</strong></td>
-                                            <td>@repayment.ScheduledDate.ToString("MMM dd, yyyy")</td>
-                                            <td>@repayment.PrincipalAmount.ToString("N0") RWF</td>
-                                            <td>@repayment.InterestAmount.ToString("N0") RWF</td>
-                                            <td class="fw-bold">@totalPayment.ToString("N0") RWF</td>
-                                            <td>
-                                                @if (repayment.Status == "Paid")
-                                                {
-                                                    <span class="badge bg-success">✓ Paid</span>
-                                                    @if (repayment.PaidAt.HasValue)
-                                                    {
-                                                        <br />
-                                                        <small class="text-muted">@repayment.PaidAt.Value.ToString("MMM dd")</small>
-                                                    }
-                                                }
-                                                else if (isOverdue)
-                                                {
-                                                    <span class="badge bg-danger">⚠️ Overdue</span>
-                                                }
-                                                else
-                                                {
-                                                    <span class="badge bg-warning">⏳ Pending</span>
-                                                }
-                                            </td>
-                                            <td>
-                                                @if (repayment.Status == "Pending")
-                                                {
-                                                    <form method="post" class="d-inline">
-                                                        <input type="hidden" name="repaymentId" value="@repayment.RepaymentId" />
-                                                        <button type="submit"
-                                                                class="btn btn-sm btn-@(isOverdue ? "danger" : "primary")"
-                                                                @(Model.WalletBalance < totalPayment ? "disabled" : "")>
-                                                            💳 Pay Now
-                                                        </button>
-                                                    </form>
-                                                }
-                                                else
-                                                {
-                                                    <span class="text-muted">-</span>
-                                                }
-                                            </td>
-                                        </tr>
-                                        weekNumber++;
+                                        <span class="status-pill status-paid">
+                                            <span>✓</span> Paid
+                                        </span>
                                     }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                                    else if (isOverdue)
+                                    {
+                                        <span class="status-pill status-overdue">
+                                            <span>⚠️</span> Overdue
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status-pill status-pending">
+                                            <span>⏳</span> Pending
+                                        </span>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    @if (repayment.Status == "Pending")
+                                    {
+                                        <form method="post" class="d-inline">
+                                            <input type="hidden" name="repaymentId" value="@repayment.RepaymentId" />
+                                            <button type="submit"
+                                                    class="btn-pay @(isOverdue ? "btn-pay-danger" : "")"
+                                                    @(Model.WalletBalance < totalPayment ? "disabled" : "")>
+                                                Pay Now
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted" style="font-size: 0.9rem;">Paid on @repayment.PaidAt?.ToString("MMM dd")</span>
+                                    }
+                                </td>
+                            </tr>
+                            weekNumber++;
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     }

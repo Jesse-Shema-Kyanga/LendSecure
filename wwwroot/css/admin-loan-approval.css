@@ -1,0 +1,270 @@
+/* Admin Loan Approval Page Styles */
+
+.loan-approval-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Page Header */
+.page-header-row {
+    margin-bottom: 2rem;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-title i {
+    font-size: 1.75rem;
+    color: #4B5563;
+}
+
+.header-title h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #3B82F6;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6B7280;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #F3F4F6;
+}
+
+.filter-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6B7280;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.filter-tab:hover {
+    background-color: #F9FAFB;
+    color: #111827;
+}
+
+.filter-tab.active {
+    background-color: #2563EB;
+    color: white;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.filter-tab i {
+    font-size: 1rem;
+}
+
+/* Loan Cards */
+.loan-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #F3F4F6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.loan-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-approved {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.status-rejected {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.borrower-info {
+    margin-bottom: 1.5rem;
+}
+
+.borrower-email {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+.borrower-role {
+    font-size: 0.85rem;
+    color: #6B7280;
+}
+
+.loan-details-grid {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-label i {
+    color: #9CA3AF;
+}
+
+.detail-value {
+    color: #111827;
+    font-weight: 500;
+}
+
+.purpose-section {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #F3F4F6;
+}
+
+.purpose-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.purpose-text {
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.timestamps {
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    color: #9CA3AF;
+}
+
+.timestamp-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin-top: auto;
+}
+
+.btn-approve {
+    width: 100%;
+    background-color: #10B981;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.2s;
+}
+
+.btn-approve:hover {
+    background-color: #059669;
+}
+
+.btn-reject {
+    width: 100%;
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-reject:hover {
+    background-color: #DC2626;
+}
+
+.decision-badge {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    background-color: #6B7280;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #F3F4F6;
+    color: #6B7280;
+}
