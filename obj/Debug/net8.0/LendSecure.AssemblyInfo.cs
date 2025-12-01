@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LendSecure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e408fd38ab2ed59d495255efdcc169ac523dc502")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efce4078dada759cb8ccdfc9386d16b225cbd857")]
 [assembly: System.Reflection.AssemblyProductAttribute("LendSecure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LendSecure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

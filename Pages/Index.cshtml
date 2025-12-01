@@ -1,5 +1,155 @@
 ﻿@page
-@model LendSecure.Pages.IndexModel
+@model IndexModel
 @{
-    // This page just redirects, no content needed
+    ViewData["Title"] = "Home";
+    Layout = "_LandingLayout";
 }
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <h1>LendSecure – Simple & Secure Peer-to-Peer Lending</h1>
+                <p>Borrow easily. Lend safely. Empower financial freedom.</p>
+                <div class="hero-buttons">
+                    <a asp-page="/Account/Register" class="btn btn-primary">Get Started</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <!-- Placeholder for the 3D illustration. Using a high-quality placeholder or the uploaded image if suitable. 
+                         For now, I'll use a placeholder that looks professional. -->
+                    <img src="~/Images/Landing.webp" alt="Financial Growth Illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2 class="section-title">Your Trusted Financial Partner</h2>
+        <p class="section-subtitle">We provide a secure and straightforward platform to connect borrowers and lenders, making finance more accessible for everyone.</p>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <h3>Low Interest Rates</h3>
+                    <p>Access capital at competitive rates, tailored to your financial profile.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Transactions</h3>
+                    <p>Your data and transactions are protected with bank-level security.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Easy Process</h3>
+                    <p>A streamlined application and approval process gets you funded faster.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works-section">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">A simple, transparent process for both borrowers and lenders.</p>
+        
+        <div class="row">
+            <div class="col-md-4 step-item">
+                <div class="step-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <span class="step-number">1. Create Account</span>
+                <p>Sign up in minutes and complete our simple identity verification process.</p>
+            </div>
+            <div class="col-md-4 step-item">
+                <div class="step-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <span class="step-number">2. List or Find Loans</span>
+                <p>Borrowers can post loan requests, and lenders can browse and fund opportunities.</p>
+            </div>
+            <div class="col-md-4 step-item">
+                <div class="step-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <span class="step-number">3. Get Funded</span>
+                <p>Once a loan is funded, the money is transferred securely to the borrower's account.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Trusted by Thousands</h2>
+        <p class="section-subtitle text-center">See what our users have to say about their experience with LendSecure.</p>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"LendSecure made it incredibly easy to get a loan for my small business. The process was fast, and the rates were much better than the banks."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="author-avatar">
+                        <div class="author-info">
+                            <h5>Sarah J.</h5>
+                            <span>Small Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a lender, I appreciate the transparency and security of the platform. It's a great way to earn passive income while helping others."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael K." class="author-avatar">
+                        <div class="author-info">
+                            <h5>Michael K.</h5>
+                            <span>Investor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I needed to consolidate my debt, and LendSecure offered a simple solution. The user interface is clean, and support was very helpful."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily R." class="author-avatar">
+                        <div class="author-info">
+                            <h5>Emily R.</h5>
+                            <span>Borrower</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="section-title">Ready to Take Control of Your Finances?</h2>
+        <p class="section-subtitle">Join LendSecure today and experience a smarter way to borrow and lend.</p>
+        <a asp-page="/Account/Register" class="btn btn-primary cta-btn">Get Started for Free</a>
+    </div>
+</section>

@@ -1,17 +1,45 @@
 ﻿@page
 @model LendSecure.Pages.Account.LoginModel
 @{
+    Layout = null;
     ViewData["Title"] = "Login";
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card shadow">
-                <div class="card-header bg-success text-white">
-                    <h3 class="mb-0">Welcome Back!</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LendSecure</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Left Side -->
+            <div class="auth-left">
+                <div class="auth-illustration-container">
+                    <!-- Using the landing image as a placeholder, styled to look integrated -->
+                    <img src="~/Images/Landing.webp" alt="Secure Lending Illustration">
                 </div>
-                <div class="card-body">
+                <h2>Secure Peer-to-Peer Lending</h2>
+                <p>Connecting borrowers and investors with trust and transparency at the core.</p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="auth-right">
+                <a href="/" class="auth-logo">
+                    <i class="fas fa-shield-alt text-primary"></i> LendSecure
+                </a>
+
+                <div class="auth-form-container">
+                    <div class="auth-header">
+                        <h1>Welcome Back</h1>
+                        <p>Log in to your LendSecure account</p>
+                    </div>
+
                     @if (TempData["SuccessMessage"] != null)
                     {
                         <div class="alert alert-success">
@@ -27,34 +55,43 @@
                     }
 
                     <form method="post">
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label asp-for="Input.Email" class="form-label">Email Address</label>
-                            <input asp-for="Input.Email" class="form-control" placeholder="Enter your email" autofocus />
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                <input asp-for="Input.Email" class="form-control" placeholder="Enter your email address" autofocus />
+                            </div>
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label asp-for="Input.Password" class="form-label">Password</label>
-                            <input asp-for="Input.Password" class="form-control" placeholder="Enter your password" />
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input asp-for="Input.Password" class="form-control" placeholder="Enter your password" />
+                            </div>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
 
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success btn-lg">Login</button>
+                        <button type="submit" class="btn btn-login mt-4">Log In</button>
+
+                        <div class="auth-footer">
+                            Don't have an account? <a asp-page="/Account/Register">Sign Up</a>
                         </div>
                     </form>
 
-                    <hr class="my-4" />
-
-                    <div class="text-center">
-                        <p>Don't have an account? <a asp-page="/Account/Register">Register here</a></p>
+                    <div class="legal-links">
+                        <p>&copy; 2025 LendSecure. All rights reserved.</p>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <partial name="_ValidationScriptsPartial" />
-}
+</body>
+</html>

@@ -9,117 +9,121 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LendSecure
 build_property.RootNamespace = LendSecure
-build_property.ProjectDir = C:\Users\Jess\source\repos\LendSecure\
+build_property.ProjectDir = C:\Users\gh\Desktop\DotNetFinalProject\LendSecure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Jess\source\repos\LendSecure
+build_property.MSBuildProjectDirectory = C:\Users\gh\Desktop\DotNetFinalProject\LendSecure
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Account/Login.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Account/Logout.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Account/Register.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/AuditLogs.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Admin/AuditLogs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQXVkaXRMb2dzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/Dashboard.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/KYCReview.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Admin/KYCReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cS1lDUmV2aWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/LoanApprovals.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Admin/LoanApprovals.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTG9hbkFwcHJvdmFscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Admin/Users.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Admin/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Borrower/Dashboard.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Borrower/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9ycm93ZXJcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Error.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Index.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/KYC/Upload.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/KYC/Upload.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS1lDXFVwbG9hZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Lender/Dashboard.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Lender/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVuZGVyXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Browse.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Loan/Browse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxCcm93c2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Create.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Loan/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/Fund.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Loan/Fund.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxGdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/MyFundings.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Loan/MyFundings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxNeUZ1bmRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Loan/MyLoans.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Loan/MyLoans.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hblxNeUxvYW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Privacy.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Repayment/Schedule.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Repayment/Schedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwYXltZW50XFNjaGVkdWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Shared/_LandingLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYW5kaW5nTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Wallet/Deposit.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Wallet/Deposit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FsbGV0XERlcG9zaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Wallet/Transactions.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Wallet/Transactions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FsbGV0XFRyYW5zYWN0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/_ViewImports.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/_ViewStart.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jess/source/repos/LendSecure/Pages/Shared/_Layout.cshtml]
+[C:/Users/gh/Desktop/DotNetFinalProject/LendSecure/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6304hk4xtb
