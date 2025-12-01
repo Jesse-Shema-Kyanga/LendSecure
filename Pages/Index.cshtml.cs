@@ -27,7 +27,7 @@ namespace LendSecure.Pages
                 }
             }
 
-            return RedirectToPage("/Account/Login");
+            return Page();
         }
     }
 }

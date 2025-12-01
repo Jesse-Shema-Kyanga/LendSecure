@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jess\\source\\repos\\LendSecure\\LendSecure.csproj": {}
+    "C:\\Users\\gh\\Desktop\\DotNetFinalProject\\LendSecure\\LendSecure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jess\\source\\repos\\LendSecure\\LendSecure.csproj": {
+    "C:\\Users\\gh\\Desktop\\DotNetFinalProject\\LendSecure\\LendSecure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jess\\source\\repos\\LendSecure\\LendSecure.csproj",
+        "projectUniqueName": "C:\\Users\\gh\\Desktop\\DotNetFinalProject\\LendSecure\\LendSecure.csproj",
         "projectName": "LendSecure",
-        "projectPath": "C:\\Users\\Jess\\source\\repos\\LendSecure\\LendSecure.csproj",
-        "packagesPath": "C:\\Users\\Jess\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jess\\source\\repos\\LendSecure\\obj\\",
+        "projectPath": "C:\\Users\\gh\\Desktop\\DotNetFinalProject\\LendSecure\\LendSecure.csproj",
+        "packagesPath": "C:\\Users\\gh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gh\\Desktop\\DotNetFinalProject\\LendSecure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jess\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

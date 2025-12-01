@@ -42,7 +42,6 @@ namespace LendSecure.Pages.Wallet
 
             var userId = Guid.Parse(userIdStr);
             var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId);
-
             if (wallet != null)
             {
                 CurrentBalance = wallet.Balance;
