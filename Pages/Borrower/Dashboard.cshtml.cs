@@ -19,6 +19,7 @@ namespace LendSecure.Pages.Borrower
         public int ActiveLoansCount { get; set; }
         public string KYCStatus { get; set; }
         public DateTime CreatedAt { get; set; }
+        public Guid? FirstFundedLoanId { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -56,6 +57,14 @@ namespace LendSecure.Pages.Borrower
             // Get active loans count
             ActiveLoansCount = user.LoanRequests
                 .Count(l => l.Status == "Approved" || l.Status == "Funded" || l.Status == "Repaying");
+
+            // Get first funded loan for repayment link
+            var firstFundedLoan = user.LoanRequests
+                .Where(l => l.Status == "Funded" || l.Status == "Repaying")
+                .OrderBy(l => l.CreatedAt)
+                .FirstOrDefault();
+
+            FirstFundedLoanId = firstFundedLoan?.LoanId;
 
             // Get KYC status
             var kycDoc = user.KYCDocuments

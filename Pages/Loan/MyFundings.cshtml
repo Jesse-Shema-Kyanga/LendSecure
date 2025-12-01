@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model LendSecure.Pages.Loan.MyFundingsModel
 @{
     ViewData["Title"] = "My Funded Loans";
@@ -6,18 +6,55 @@
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>My Funded Loans</h2>
+        <h2>💰 My Funded Loans</h2>
         <a asp-page="/Lender/Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
     </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
-            @if (Model.Fundings.Count == 0)
-            {
-                <div class="alert alert-info mb-0">You haven't funded any loans yet. <a asp-page="/Loan/Browse">Browse available loans</a> to start investing!</div>
-            }
-            else
-            {
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (Model.Fundings.Any())
+    {
+        <!-- Summary Stats -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h6 class="card-title">Total Invested</h6>
+                        <h3 class="mb-0">@Model.TotalInvested.ToString("N0") RWF</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h6 class="card-title">Expected Returns</h6>
+                        <h3 class="mb-0">+@Model.ExpectedReturns.ToString("N0") RWF</h3>
+                        <small>From interest</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h6 class="card-title">Active Loans</h6>
+                        <h3 class="mb-0">@Model.ActiveLoansCount</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fundings Table -->
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5 class="mb-0">Investment History</h5>
+            </div>
+            <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="table-light">
@@ -26,13 +63,15 @@
                                 <th>Borrower</th>
                                 <th>Loan Purpose</th>
                                 <th>Amount Funded</th>
-                                <th>Loan Status</th>
                                 <th>Interest Rate</th>
+                                <th>Expected Returns</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var funding in Model.Fundings)
                             {
+                                var expectedInterest = funding.Amount * funding.Loan.InterestRate / 100;
                                 <tr>
                                     <td>@funding.FundedAt.ToString("MMM dd, yyyy")</td>
                                     <td>
@@ -46,28 +85,47 @@
                                         }
                                     </td>
                                     <td>@funding.Loan.Purpose</td>
-                                    <td class="fw-bold text-success">@funding.Amount.ToString("N0") RWF</td>
+                                    <td class="fw-bold">@funding.Amount.ToString("N0") RWF</td>
+                                    <td>@funding.Loan.InterestRate%</td>
+                                    <td class="text-success fw-bold">+@expectedInterest.ToString("N0") RWF</td>
                                     <td>
                                         @if (funding.Loan.Status == "Funded")
                                         {
-                                            <span class="badge bg-success">Active</span>
+                                            <span class="badge bg-primary">💰 Active</span>
+                                        }
+                                        else if (funding.Loan.Status == "Repaying")
+                                        {
+                                            <span class="badge bg-info">📊 Repaying</span>
                                         }
                                         else if (funding.Loan.Status == "Completed")
                                         {
-                                            <span class="badge bg-primary">Repaid</span>
+                                            <span class="badge bg-success">✓ Completed</span>
                                         }
                                         else
                                         {
-                                            <span class="badge bg-warning text-dark">@funding.Loan.Status</span>
+                                            <span class="badge bg-secondary">@funding.Loan.Status</span>
                                         }
                                     </td>
-                                    <td>@funding.Loan.InterestRate%</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
-            }
+            </div>
         </div>
-    </div>
+
+        <div class="mt-4 text-center">
+            <a asp-page="/Loan/Browse" class="btn btn-success btn-lg">🔍 Browse More Loans</a>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <h4>No Investments Yet</h4>
+                <p class="text-muted">You haven't funded any loans yet. Start investing to earn interest!</p>
+                <a asp-page="/Loan/Browse" class="btn btn-success btn-lg">Browse Available Loans</a>
+            </div>
+        </div>
+    }
 </div>

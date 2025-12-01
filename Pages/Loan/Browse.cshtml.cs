@@ -21,14 +21,29 @@ namespace LendSecure.Pages.Loan
 
         public IList<LoanRequest> Loans { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            Loans = await _context.LoanRequests
+            // FIXED: Check if user is Lender
+            var userRole = HttpContext.Session.GetString("UserRole");
+            if (userRole != "Lender")
+            {
+                return RedirectToPage("/Account/Login");
+            }
+
+            // Get all approved loans
+            var allLoans = await _context.LoanRequests
                 .Include(l => l.Borrower)
                 .ThenInclude(b => b.Profile)
                 .Include(l => l.Fundings)
                 .Where(l => l.Status == "Approved")
                 .ToListAsync();
+
+            // FIXED: Filter out fully funded loans
+            Loans = allLoans
+                .Where(l => l.Fundings.Sum(f => f.Amount) < l.AmountRequested)
+                .ToList();
+
+            return Page();
         }
     }
 }

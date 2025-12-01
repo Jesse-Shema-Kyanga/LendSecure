@@ -115,15 +115,12 @@
                                 <p class="mb-0"><small class="text-muted">Approved on: @loan.ApprovedAt.Value.ToString("MMMM dd, yyyy")</small></p>
                             }
                         </div>
-                        @* Commented out until we build the Repayment Schedule page *@
-                        @* 
                         <div class="card-footer">
-                            @if (loan.Status == "Repaying" || loan.Status == "Funded")
+                            @if (loan.Status == "Funded" || loan.Status == "Repaying")
                             {
                                 <a href="/Repayment/Schedule?loanId=@loan.LoanId" class="btn btn-sm btn-primary">View Repayment Schedule</a>
                             }
                         </div>
-                        *@
                     </div>
                 </div>
             }

@@ -1,15 +1,24 @@
-@page
+﻿@page
 @model LendSecure.Pages.Loan.BrowseModel
 @{
     ViewData["Title"] = "Browse Loans";
 }
 
 <div class="container mt-5">
-    <h2 class="mb-4">Browse Approved Loans</h2>
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2>🔍 Browse Available Loans</h2>
+            <p class="text-muted">Fund approved loans and earn interest on your investment</p>
+        </div>
+    </div>
 
-    @if (Model.Loans.Count == 0)
+    @if (!Model.Loans.Any())
     {
-        <div class="alert alert-info">No approved loans available for funding at the moment.</div>
+        <div class="alert alert-info">
+            <h5>No loans available for funding</h5>
+            <p class="mb-0">All approved loans are either fully funded or there are no approved loans at the moment. Check back later!</p>
+        </div>
+        <a href="/Lender/Dashboard" class="btn btn-secondary">← Back to Dashboard</a>
     }
     else
     {
@@ -17,14 +26,15 @@
             @foreach (var loan in Model.Loans)
             {
                 var fundedAmount = loan.Fundings.Sum(f => f.Amount);
-                var progress = (fundedAmount / loan.AmountRequested) * 100;
+                var remainingAmount = loan.AmountRequested - fundedAmount;
+                var progress = Math.Min((fundedAmount / loan.AmountRequested) * 100, 100);
 
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title">@loan.Purpose</h5>
                             <h6 class="card-subtitle mb-2 text-muted">
-                                by 
+                                by
                                 @if (!string.IsNullOrEmpty(loan.Borrower.Profile?.FirstName))
                                 {
                                     @($"{loan.Borrower.Profile.FirstName} {loan.Borrower.Profile.LastName}")
@@ -34,27 +44,50 @@
                                     @loan.Borrower.Email
                                 }
                             </h6>
-                            <p class="card-text">
-                                <strong>Amount:</strong> @loan.AmountRequested.ToString("N0") @loan.Currency<br />
-                                <strong>Interest:</strong> @loan.InterestRate%<br />
-                                <strong>Term:</strong> @loan.TermMonths months
+                            <hr />
+                            <p class="card-text mb-2">
+                                <strong>💰 Total Amount:</strong> @loan.AmountRequested.ToString("N0") @loan.Currency<br />
+                                <strong>📊 Interest Rate:</strong> @loan.InterestRate%<br />
+                                <strong>📅 Term:</strong> @loan.TermMonths month(s)<br />
+                                <strong>💵 Remaining:</strong> <span class="text-success">@remainingAmount.ToString("N0") @loan.Currency</span>
                             </p>
-                            
+
                             <div class="mb-3">
-                                <label class="small text-muted">Funding Progress: @fundedAmount.ToString("N0") / @loan.AmountRequested.ToString("N0")</label>
+                                <label class="small text-muted">
+                                    Funding Progress: @fundedAmount.ToString("N0") / @loan.AmountRequested.ToString("N0") (@progress.ToString("N0")%)
+                                </label>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: @progress%" aria-valuenow="@progress" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-success"
+                                         role="progressbar"
+                                         style="width: @progress%"
+                                         aria-valuenow="@progress"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100">
+                                    </div>
                                 </div>
                             </div>
 
-                            <a asp-page="./Fund" asp-route-id="@loan.LoanId" class="btn btn-primary w-100">Fund This Loan</a>
+                            <div class="alert alert-light small mb-3">
+                                <strong>💡 Your Returns:</strong><br />
+                                Interest earned: @((loan.AmountRequested * loan.InterestRate / 100).ToString("N0")) @loan.Currency
+                            </div>
+
+                            <a asp-page="./Fund" asp-route-id="@loan.LoanId" class="btn btn-primary w-100">
+                                💰 Fund This Loan
+                            </a>
                         </div>
                         <div class="card-footer text-muted small">
-                            Posted on @loan.CreatedAt.ToShortDateString()
+                            Posted on @loan.CreatedAt.ToString("MMMM dd, yyyy")
                         </div>
                     </div>
                 </div>
             }
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="/Lender/Dashboard" class="btn btn-secondary btn-lg">← Back to Dashboard</a>
+            </div>
         </div>
     }
 </div>

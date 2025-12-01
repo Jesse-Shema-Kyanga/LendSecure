@@ -21,11 +21,17 @@ namespace LendSecure.Pages.Loan
         }
 
         public IList<LoanFunding> Fundings { get; set; }
+        public decimal TotalInvested { get; set; }
+        public decimal ExpectedReturns { get; set; }
+        public int ActiveLoansCount { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check role
+            if (string.IsNullOrEmpty(userIdStr) || userRole != "Lender")
             {
                 return RedirectToPage("/Account/Login");
             }
@@ -39,6 +45,11 @@ namespace LendSecure.Pages.Loan
                 .Where(f => f.LenderId == userId)
                 .OrderByDescending(f => f.FundedAt)
                 .ToListAsync();
+
+            // Calculate summary stats
+            TotalInvested = Fundings.Sum(f => f.Amount);
+            ExpectedReturns = Fundings.Sum(f => (f.Amount * f.Loan.InterestRate / 100));
+            ActiveLoansCount = Fundings.Count(f => f.Loan.Status == "Funded" || f.Loan.Status == "Repaying");
 
             return Page();
         }

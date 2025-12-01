@@ -1,0 +1,115 @@
+﻿@page
+@model LendSecure.Pages.Admin.UsersModel
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2>👥 Manage Users</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Users</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h6>Total Users</h6>
+                    <h3>@Model.TotalUsers</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h6>Borrowers</h6>
+                    <h3>@Model.BorrowersCount</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h6>Lenders</h6>
+                    <h3>@Model.LendersCount</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">All Platform Users</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>KYC Status</th>
+                            <th>Wallet Balance</th>
+                            <th>Joined</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.Users)
+                        {
+                            <tr>
+                                <td>@user.Email</td>
+                                <td>
+                                    @if (user.Role == "Admin")
+                                    {
+                                        <span class="badge bg-danger">Admin</span>
+                                    }
+                                    else if (user.Role == "Borrower")
+                                    {
+                                        <span class="badge bg-warning">Borrower</span>
+                                    }
+                                    else if (user.Role == "Lender")
+                                    {
+                                        <span class="badge bg-success">Lender</span>
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        var kycStatus = user.KYCDocuments.OrderByDescending(k => k.ReviewedAt).FirstOrDefault()?.Status ?? "None";
+                                    }
+                                    @if (kycStatus == "Approved")
+                                    {
+                                        <span class="badge bg-success">✓ Approved</span>
+                                    }
+                                    else if (kycStatus == "Pending")
+                                    {
+                                        <span class="badge bg-warning">Pending</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">No KYC</span>
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        var balance = user.Wallets.FirstOrDefault()?.Balance ?? 0;
+                                    }
+                                    @balance.ToString("N0") RWF
+                                </td>
+                                <td>@user.CreatedAt.ToString("MMM dd, yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

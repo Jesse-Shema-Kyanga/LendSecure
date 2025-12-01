@@ -1,4 +1,4 @@
-@page "{id:Guid}"
+﻿@page "{id:Guid}"
 @model LendSecure.Pages.Loan.FundModel
 @{
     ViewData["Title"] = "Fund Loan";
@@ -19,7 +19,7 @@
 
                     <h4 class="card-title">@Model.Loan.Purpose</h4>
                     <h6 class="text-muted mb-4">
-                        Borrower: 
+                        Borrower:
                         @if (!string.IsNullOrEmpty(Model.Loan.Borrower.Profile?.FirstName))
                         {
                             @($"{Model.Loan.Borrower.Profile.FirstName} {Model.Loan.Borrower.Profile.LastName}")

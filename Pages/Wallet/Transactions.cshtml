@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model LendSecure.Pages.Wallet.TransactionsModel
 @{
     ViewData["Title"] = "Wallet Transactions";
@@ -6,18 +6,44 @@
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Transaction History</h2>
+        <h2>💳 Transaction History</h2>
         <div>
             <a asp-page="/Wallet/Deposit" class="btn btn-success me-2">➕ Deposit Funds</a>
-            <a asp-page="/Lender/Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+            @if (Model.UserRole == "Lender")
+            {
+                <a asp-page="/Lender/Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+            }
+            else if (Model.UserRole == "Borrower")
+            {
+                <a asp-page="/Borrower/Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+            }
         </div>
     </div>
 
+    <!-- Current Balance Card -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h6 class="card-title">Current Wallet Balance</h6>
+                    <h3 class="mb-0">@Model.CurrentBalance.ToString("N0") RWF</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transactions Table -->
     <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="mb-0">All Transactions</h5>
+        </div>
         <div class="card-body">
-            @if (Model.Transactions.Count == 0)
+            @if (!Model.Transactions.Any())
             {
-                <div class="alert alert-info mb-0">No transactions found.</div>
+                <div class="alert alert-info mb-0">
+                    <h5>No transactions yet</h5>
+                    <p class="mb-0">Your transaction history will appear here once you make deposits or fund loans.</p>
+                </div>
             }
             else
             {
@@ -25,7 +51,7 @@
                     <table class="table table-hover">
                         <thead class="table-light">
                             <tr>
-                                <th>Date</th>
+                                <th>Date & Time</th>
                                 <th>Type</th>
                                 <th>Amount</th>
                                 <th>Details</th>
@@ -34,35 +60,89 @@
                         <tbody>
                             @foreach (var txn in Model.Transactions)
                             {
+                                var isCredit = txn.TxnType == "LoanDisbursement" || txn.TxnType == "Deposit" || txn.TxnType == "LoanRepayment";
+                                var isDebit = txn.TxnType == "LoanFunding" || txn.TxnType == "Withdrawal";
+
                                 <tr>
                                     <td>@txn.CreatedAt.ToString("MMM dd, yyyy HH:mm")</td>
                                     <td>
-                                        @if (txn.TxnType == "Credit" || txn.TxnType == "Deposit")
+                                        @if (isCredit)
                                         {
-                                            <span class="badge bg-success">@txn.TxnType</span>
+                                            <span class="badge bg-success">
+                                                @if (txn.TxnType == "Deposit")
+                                                {
+                                                    <text>💵 Deposit</text>
+                                                }
+                                                else if (txn.TxnType == "LoanDisbursement")
+                                                {
+
+                                                    <text>📥 Loan Received</text>
+                                                }
+                                                else if (txn.TxnType == "LoanRepayment")
+                                                {
+
+                                                    <text>💰 Repayment Received</text>
+                                                }
+                                                else
+                                                {
+
+                                                    @txn.TxnType
+                                                }
+                                            </span>
+                                        }
+                                        else if (isDebit)
+                                        {
+                                            <span class="badge bg-danger">
+                                                @if (txn.TxnType == "LoanFunding")
+                                                {
+                                                    <text>📤 Loan Funded</text>
+                                                }
+                                                else if (txn.TxnType == "Withdrawal")
+                                                {
+
+                                                    <text>💸 Withdrawal</text>
+                                                }
+                                                else
+                                                {
+
+                                                    @txn.TxnType
+                                                }
+                                            </span>
                                         }
                                         else
                                         {
-                                            <span class="badge bg-danger">@txn.TxnType</span>
+                                            <span class="badge bg-secondary">@txn.TxnType</span>
                                         }
                                     </td>
-                                    <td class="@(txn.TxnType == "Credit" || txn.TxnType == "Deposit" ? "text-success" : "text-danger") fw-bold">
-                                        @(txn.TxnType == "Credit" || txn.TxnType == "Deposit" ? "+" : "-") @txn.Amount.ToString("N0") @txn.Currency
+                                    <td class="@(isCredit ? "text-success" : "text-danger") fw-bold">
+                                        @(isCredit ? "+" : "-") @txn.Amount.ToString("N0") @txn.Currency
                                     </td>
                                     <td>
-                                        @if (txn.RelatedLoanId != null)
+                                        @if (txn.RelatedLoanId != null && txn.RelatedLoan != null)
                                         {
-                                            <span class="text-muted">Loan ID: @txn.RelatedLoanId.ToString().Substring(0, 8)...</span>
+                                            <small class="text-muted">
+                                                Loan: @txn.RelatedLoan.Purpose.Substring(0, Math.Min(30, txn.RelatedLoan.Purpose.Length))@(txn.RelatedLoan.Purpose.Length > 30 ? "..." : "")
+                                                <br />
+                                                <span class="badge bg-light text-dark">ID: @txn.RelatedLoanId.ToString().Substring(0, 8)...</span>
+                                            </small>
+                                        }
+                                        else if (txn.TxnType == "Deposit")
+                                        {
+                                            <small class="text-muted">Demo wallet deposit</small>
                                         }
                                         else
                                         {
-                                            <span class="text-muted">-</span>
+                                            <small class="text-muted">-</small>
                                         }
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
+                </div>
+
+                <div class="mt-3 text-muted small">
+                    <strong>Total Transactions:</strong> @Model.Transactions.Count
                 </div>
             }
         </div>

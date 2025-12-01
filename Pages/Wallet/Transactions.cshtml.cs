@@ -21,27 +21,35 @@ namespace LendSecure.Pages.Wallet
         }
 
         public IList<WalletTransaction> Transactions { get; set; }
+        public string UserRole { get; set; }
+        public decimal CurrentBalance { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            UserRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check authentication (allow Lender and Borrower)
+            if (string.IsNullOrEmpty(userIdStr) || UserRole == "Admin")
             {
                 return RedirectToPage("/Account/Login");
             }
 
             var userId = Guid.Parse(userIdStr);
-
             var wallet = await _context.Wallets
                 .FirstOrDefaultAsync(w => w.UserId == userId);
 
             if (wallet == null)
             {
                 Transactions = new List<WalletTransaction>();
+                CurrentBalance = 0;
                 return Page();
             }
 
+            CurrentBalance = wallet.Balance;
+
             Transactions = await _context.WalletTransactions
+                .Include(t => t.RelatedLoan) // Include loan details
                 .Where(t => t.WalletId == wallet.WalletId)
                 .OrderByDescending(t => t.CreatedAt)
                 .ToListAsync();

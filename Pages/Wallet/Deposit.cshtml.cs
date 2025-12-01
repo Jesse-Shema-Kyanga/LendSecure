@@ -27,18 +27,21 @@ namespace LendSecure.Pages.Wallet
         public decimal CurrentBalance { get; set; }
         public string SuccessMessage { get; set; }
         public string ErrorMessage { get; set; }
+        public string UserRole { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            UserRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check authentication (allow Lender and Borrower, not Admin)
+            if (string.IsNullOrEmpty(userIdStr) || UserRole == "Admin")
             {
                 return RedirectToPage("/Account/Login");
             }
 
             var userId = Guid.Parse(userIdStr);
             var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId);
-            
             if (wallet != null)
             {
                 CurrentBalance = wallet.Balance;
@@ -49,27 +52,36 @@ namespace LendSecure.Pages.Wallet
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            UserRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check authentication
+            if (string.IsNullOrEmpty(userIdStr) || UserRole == "Admin")
             {
                 return RedirectToPage("/Account/Login");
             }
 
-            var userId = Guid.Parse(userIdStr);
-            var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId);
+            if (!ModelState.IsValid)
+            {
+                var userId = Guid.Parse(userIdStr);
+                var walletCheck = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId);
+                if (walletCheck != null)
+                {
+                    CurrentBalance = walletCheck.Balance;
+                }
+                return Page();
+            }
+
+            var currentUserId = Guid.Parse(userIdStr);
+            var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == currentUserId);
 
             if (wallet == null)
             {
-                // Create wallet if it doesn't exist (defensive coding)
+                // Create wallet if it doesn't exist
                 wallet = new LendSecure.Models.Wallet
                 {
                     WalletId = Guid.NewGuid(),
-                    UserId = userId,
+                    UserId = currentUserId,
                     Balance = 0,
                     Currency = "RWF",
                     UpdatedAt = DateTime.UtcNow
@@ -97,9 +109,9 @@ namespace LendSecure.Pages.Wallet
             var auditLog = new AuditLog
             {
                 LogId = Guid.NewGuid(),
-                UserId = userId,
+                UserId = currentUserId,
                 Action = "Wallet Deposit",
-                Details = $"Deposited {Amount} RWF",
+                Details = $"Deposited {Amount:N0} RWF (Demo)",
                 IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
                 UserAgent = HttpContext.Request.Headers["User-Agent"].ToString(),
                 CreatedAt = DateTime.UtcNow
@@ -108,9 +120,12 @@ namespace LendSecure.Pages.Wallet
 
             await _context.SaveChangesAsync();
 
-            SuccessMessage = $"Successfully deposited {Amount:N0} RWF!";
+            SuccessMessage = $"Successfully deposited {Amount:N0} RWF to your wallet!";
             CurrentBalance = wallet.Balance;
-            Amount = 0; // Reset form
+
+            // Clear form
+            ModelState.Clear();
+            Amount = 0;
 
             return Page();
         }

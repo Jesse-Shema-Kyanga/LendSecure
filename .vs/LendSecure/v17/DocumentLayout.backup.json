@@ -3,16 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\Jess\\source\\repos\\LendSecure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\myloans.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\myloans.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\borrower\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\borrower\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\borrower\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\borrower\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\users.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\users.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\auditlogs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\auditlogs.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\auditlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\auditlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\myloans.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\myloans.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\repayment\\schedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\repayment\\schedule.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\fund.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\fund.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\repayment\\schedule.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\repayment\\schedule.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\wallet\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\wallet\\transactions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\wallet\\transactions.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\wallet\\transactions.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\wallet\\deposit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\wallet\\deposit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\wallet\\deposit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\wallet\\deposit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\myfundings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\myfundings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\myfundings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\myfundings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\fund.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\fund.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\browse.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\browse.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\browse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\myloans.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\myloans.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -29,10 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\loanapprovals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\admin\\loanapprovals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\loan\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\loan\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\admin\\kycreview.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,20 +159,8 @@
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\lender\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\borrower\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\borrower\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\borrower\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\borrower\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|solutionrelative:pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{247F5D2E-5D3A-4351-A46E-A92687C04E99}|LendSecure.csproj|c:\\users\\jess\\source\\repos\\lendsecure\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -122,7 +186,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,98 +198,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MyLoans.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Loan\\MyLoans.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml.cs",
-              "RelativeToolTip": "Pages\\Loan\\MyLoans.cshtml.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAmwDcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Users.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Users.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\Users.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Users.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\Users.cshtml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAmwC4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T11:19:56.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MyLoans.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Loan\\MyLoans.cshtml",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml",
-              "RelativeToolTip": "Pages\\Loan\\MyLoans.cshtml",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAmwJYAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T11:11:51.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Logout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml",
-              "RelativeToolTip": "Pages\\Account\\Logout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T02:25:05.47Z",
+              "WhenOpened": "2025-12-01T03:30:19.343Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "LoanApprovals.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Admin\\LoanApprovals.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml.cs",
-              "RelativeToolTip": "Pages\\Admin\\LoanApprovals.cshtml.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAmwI8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:47:47.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LoanApprovals.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Admin\\LoanApprovals.cshtml",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml",
-              "RelativeToolTip": "Pages\\Admin\\LoanApprovals.cshtml",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAmwKgAAAAGAAAAAAAAAA==",
+              "Title": "AuditLogs.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\AuditLogs.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\AuditLogs.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\AuditLogs.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\AuditLogs.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAmwJQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T01:40:39.065Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Loan\\Create.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Create.cshtml.cs",
-              "RelativeToolTip": "Pages\\Loan\\Create.cshtml.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAmwKIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:35:53.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Logout.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeToolTip": "Pages\\Account\\Logout.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T02:25:23.716Z",
+              "WhenOpened": "2025-12-01T03:28:38.605Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Schedule.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Repayment\\Schedule.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Repayment\\Schedule.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Repayment\\Schedule.cshtml",
+              "RelativeToolTip": "Pages\\Repayment\\Schedule.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T00:25:18.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml",
+              "RelativeToolTip": "Pages\\Borrower\\Dashboard.cshtml",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAmwIAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-28T03:00:52.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml.cs",
+              "RelativeToolTip": "Pages\\Borrower\\Dashboard.cshtml.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAmwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T03:01:36.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Users.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Users.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\Users.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Users.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\Users.cshtml",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAmwHIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T03:29:06.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuditLogs.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\AuditLogs.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\AuditLogs.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\AuditLogs.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\AuditLogs.cshtml.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAmwFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T03:29:50.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Create.cshtml",
               "RelativeDocumentMoniker": "Pages\\Loan\\Create.cshtml",
@@ -238,7 +302,254 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAUwFEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T02:52:20.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "Fund.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Fund.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Loan\\Fund.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Fund.cshtml.cs",
+              "RelativeToolTip": "Pages\\Loan\\Fund.cshtml.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAswMAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T17:41:05.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MyLoans.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Loan\\MyLoans.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml",
+              "RelativeToolTip": "Pages\\Loan\\MyLoans.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAmwJMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T11:11:51.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Schedule.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Repayment\\Schedule.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Repayment\\Schedule.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Repayment\\Schedule.cshtml.cs",
+              "RelativeToolTip": "Pages\\Repayment\\Schedule.cshtml.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAmwMwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T00:27:26.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Deposit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Deposit.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Wallet\\Deposit.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Deposit.cshtml.cs",
+              "RelativeToolTip": "Pages\\Wallet\\Deposit.cshtml.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAmwIUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T17:47:06.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Transactions.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Transactions.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Wallet\\Transactions.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Transactions.cshtml",
+              "RelativeToolTip": "Pages\\Wallet\\Transactions.cshtml",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAmwJUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T17:47:57.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Loan\\Create.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Create.cshtml.cs",
+              "RelativeToolTip": "Pages\\Loan\\Create.cshtml.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAWwJEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:35:53.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Transactions.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Transactions.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Wallet\\Transactions.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Transactions.cshtml.cs",
+              "RelativeToolTip": "Pages\\Wallet\\Transactions.cshtml.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T17:48:23.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Deposit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Deposit.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Wallet\\Deposit.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Wallet\\Deposit.cshtml",
+              "RelativeToolTip": "Pages\\Wallet\\Deposit.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAmwEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T17:46:20.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MyFundings.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyFundings.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Loan\\MyFundings.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyFundings.cshtml.cs",
+              "RelativeToolTip": "Pages\\Loan\\MyFundings.cshtml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAmwDgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T17:44:08.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MyFundings.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyFundings.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Loan\\MyFundings.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyFundings.cshtml",
+              "RelativeToolTip": "Pages\\Loan\\MyFundings.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAmwIIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T17:42:22.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Fund.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Fund.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Loan\\Fund.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Fund.cshtml",
+              "RelativeToolTip": "Pages\\Loan\\Fund.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T17:40:41.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Browse.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Browse.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Loan\\Browse.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Browse.cshtml.cs",
+              "RelativeToolTip": "Pages\\Loan\\Browse.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T17:37:51.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Browse.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Browse.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Loan\\Browse.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\Browse.cshtml",
+              "RelativeToolTip": "Pages\\Loan\\Browse.cshtml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAmwFwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T17:37:19.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MyLoans.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Loan\\MyLoans.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Loan\\MyLoans.cshtml.cs",
+              "RelativeToolTip": "Pages\\Loan\\MyLoans.cshtml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAUwDcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T11:19:56.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Logout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml",
+              "RelativeToolTip": "Pages\\Account\\Logout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T02:25:05.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoanApprovals.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\LoanApprovals.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\LoanApprovals.cshtml.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAmwI8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T01:47:47.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "LoanApprovals.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\LoanApprovals.cshtml",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\LoanApprovals.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\LoanApprovals.cshtml",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAmwKgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-30T01:40:39.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Logout.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Logout.cshtml.cs",
+              "RelativeToolTip": "Pages\\Account\\Logout.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAmwBAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T02:25:23.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "KYCReview.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Admin\\KYCReview.cshtml.cs",
@@ -251,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 28,
               "Title": "KYCReview.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\KYCReview.cshtml",
               "RelativeDocumentMoniker": "Pages\\Admin\\KYCReview.cshtml",
@@ -264,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 29,
               "Title": "Upload.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\KYC\\Upload.cshtml.cs",
@@ -277,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 30,
               "Title": "Upload.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\KYC\\Upload.cshtml",
               "RelativeDocumentMoniker": "Pages\\KYC\\Upload.cshtml",
@@ -290,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 33,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
@@ -303,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 37,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Lender\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Lender\\Dashboard.cshtml.cs",
@@ -316,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 38,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Lender\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Pages\\Lender\\Dashboard.cshtml",
@@ -329,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 31,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml",
@@ -342,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 32,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Account\\Login.cshtml.cs",
@@ -355,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 35,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Admin\\Dashboard.cshtml.cs",
@@ -368,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 34,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -381,20 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Dashboard.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml.cs",
-              "RelativeToolTip": "Pages\\Borrower\\Dashboard.cshtml.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAmwEUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:01:36.326Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 36,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Pages\\Admin\\Dashboard.cshtml",
@@ -407,33 +705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Borrower\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Borrower\\Dashboard.cshtml",
-              "RelativeToolTip": "Pages\\Borrower\\Dashboard.cshtml",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAmwHcAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-28T03:00:52.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Register.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml.cs",
-              "ToolTip": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeToolTip": "Pages\\Account\\Register.cshtml.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAUwEIAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T02:52:20.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 40,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Pages\\Account\\Register.cshtml",
@@ -446,7 +718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 41,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -459,7 +731,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 39,
               "Title": "Models.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Models\\Models.cs",
               "RelativeDocumentMoniker": "Models\\Models.cs",
@@ -472,7 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 42,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -485,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 43,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Jess\\source\\repos\\LendSecure\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",

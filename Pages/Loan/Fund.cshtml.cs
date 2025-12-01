@@ -31,7 +31,10 @@ namespace LendSecure.Pages.Loan
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check authentication and role
+            if (string.IsNullOrEmpty(userIdStr) || userRole != "Lender")
             {
                 return RedirectToPage("/Account/Login");
             }
@@ -42,13 +45,20 @@ namespace LendSecure.Pages.Loan
                 .Include(l => l.Fundings)
                 .FirstOrDefaultAsync(m => m.LoanId == id);
 
-            if (Loan == null)
+            if (Loan == null || Loan.Status != "Approved")
             {
-                return NotFound();
+                return RedirectToPage("/Loan/Browse");
             }
 
             FundedAmount = Loan.Fundings.Sum(f => f.Amount);
             RemainingAmount = Loan.AmountRequested - FundedAmount;
+
+            // Check if already fully funded
+            if (RemainingAmount <= 0)
+            {
+                TempData["ErrorMessage"] = "This loan is already fully funded.";
+                return RedirectToPage("/Loan/Browse");
+            }
 
             var lenderId = Guid.Parse(userIdStr);
             var lenderWallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == lenderId);
@@ -63,7 +73,10 @@ namespace LendSecure.Pages.Loan
         public async Task<IActionResult> OnPostAsync(Guid id)
         {
             var userIdStr = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdStr))
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            // FIXED: Check authentication and role
+            if (string.IsNullOrEmpty(userIdStr) || userRole != "Lender")
             {
                 return RedirectToPage("/Account/Login");
             }
@@ -73,7 +86,8 @@ namespace LendSecure.Pages.Loan
             // Re-fetch data to ensure consistency
             Loan = await _context.LoanRequests
                 .Include(l => l.Fundings)
-                .Include(l => l.Borrower) // Include Borrower to get their ID for wallet
+                .Include(l => l.Borrower)
+                .ThenInclude(b => b.Profile)
                 .FirstOrDefaultAsync(m => m.LoanId == id);
 
             if (Loan == null) return NotFound();
@@ -99,13 +113,14 @@ namespace LendSecure.Pages.Loan
             }
             if (AmountToFund > RemainingAmount)
             {
-                ErrorMessage = $"You cannot fund more than the remaining amount ({RemainingAmount}).";
+                ErrorMessage = $"You cannot fund more than the remaining amount ({RemainingAmount:N0}).";
                 return Page();
             }
 
             // 1. Create Funding Record
             var funding = new LoanFunding
             {
+                FundingId = Guid.NewGuid(),
                 LoanId = Loan.LoanId,
                 LenderId = lenderId,
                 Amount = AmountToFund,
@@ -122,19 +137,27 @@ namespace LendSecure.Pages.Loan
             var borrowerWallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == Loan.BorrowerId);
             if (borrowerWallet == null)
             {
-                // Should exist, but handle just in case
-                borrowerWallet = new LendSecure.Models.Wallet { UserId = Loan.BorrowerId, Balance = 0 };
+                borrowerWallet = new LendSecure.Models.Wallet
+                {
+                    WalletId = Guid.NewGuid(),
+                    UserId = Loan.BorrowerId,
+                    Balance = 0,
+                    Currency = "RWF",
+                    UpdatedAt = DateTime.UtcNow
+                };
                 _context.Wallets.Add(borrowerWallet);
             }
             borrowerWallet.Balance += AmountToFund;
             borrowerWallet.UpdatedAt = DateTime.UtcNow;
 
-            // 3. Create Wallet Transactions
+            // 3. Create Wallet Transactions (FIXED: Added Currency)
             var lenderTxn = new WalletTransaction
             {
+                TxnId = Guid.NewGuid(),
                 WalletId = lenderWallet.WalletId,
-                TxnType = "Debit", // Funding a loan
+                TxnType = "LoanFunding",
                 Amount = AmountToFund,
+                Currency = "RWF",
                 RelatedLoanId = Loan.LoanId,
                 CreatedAt = DateTime.UtcNow
             };
@@ -142,51 +165,62 @@ namespace LendSecure.Pages.Loan
 
             var borrowerTxn = new WalletTransaction
             {
+                TxnId = Guid.NewGuid(),
                 WalletId = borrowerWallet.WalletId,
-                TxnType = "Credit", // Loan disbursement
+                TxnType = "LoanDisbursement",
                 Amount = AmountToFund,
+                Currency = "RWF",
                 RelatedLoanId = Loan.LoanId,
                 CreatedAt = DateTime.UtcNow
             };
             _context.WalletTransactions.Add(borrowerTxn);
 
             // 4. Check for Full Funding
-            if (FundedAmount + AmountToFund >= Loan.AmountRequested)
+            var newFundedAmount = FundedAmount + AmountToFund;
+            if (newFundedAmount >= Loan.AmountRequested)
             {
                 Loan.Status = "Funded";
-                Loan.ApprovedAt = DateTime.UtcNow; // Using ApprovedAt as "FundedAt" or we could add a new field. 
-                // Wait, ApprovedAt is for Admin approval. Let's leave it. 
-                // Maybe we need a "FullyFundedAt"? For now, Status change is enough.
 
-                // 5. Generate Repayment Schedule
-                // 1 Month Term = 4 Weekly Payments
-                // Total Repayment = Principal + Interest
-                // Interest = Principal * (Rate / 100)
-                // We calculate interest on the TOTAL loan amount
+                // 5. Generate Repayment Schedule (4 weekly payments)
                 decimal totalPrincipal = Loan.AmountRequested;
                 decimal totalInterest = totalPrincipal * (Loan.InterestRate / 100m);
-                decimal totalRepayment = totalPrincipal + totalInterest;
-                
+
                 decimal weeklyPrincipal = totalPrincipal / 4m;
                 decimal weeklyInterest = totalInterest / 4m;
 
                 for (int i = 1; i <= 4; i++)
                 {
-                    var repayment = new Repayment
+                    var repayment = new LendSecure.Models.Repayment
                     {
+                        RepaymentId = Guid.NewGuid(),
                         LoanId = Loan.LoanId,
-                        ScheduledDate = DateTime.UtcNow.AddDays(i * 7),
+                        ScheduledDate = DateTime.UtcNow.Date.AddDays(i * 7), // FIXED: Use .Date
                         PrincipalAmount = weeklyPrincipal,
                         InterestAmount = weeklyInterest,
-                        Status = "Pending"
+                        Status = "Pending",
+                        PaidAt = null
                     };
                     _context.Repayments.Add(repayment);
                 }
             }
 
+            // FIXED: Add Audit Log
+            var auditLog = new AuditLog
+            {
+                LogId = Guid.NewGuid(),
+                UserId = lenderId,
+                Action = "Loan Funded",
+                Details = $"Funded {AmountToFund:N0} RWF to loan {Loan.LoanId} for {Loan.Borrower.Email}",
+                IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
+                UserAgent = HttpContext.Request.Headers["User-Agent"].ToString(),
+                CreatedAt = DateTime.UtcNow
+            };
+            _context.AuditLogs.Add(auditLog);
+
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Lender/Dashboard");
+            TempData["SuccessMessage"] = $"Successfully funded {AmountToFund:N0} RWF!";
+            return RedirectToPage("/Loan/MyFundings");
         }
     }
 }
