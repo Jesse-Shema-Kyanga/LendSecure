@@ -2,91 +2,516 @@
 @model LendSecure.Pages.Lender.DashboardModel
 @{
     ViewData["Title"] = "Lender Dashboard";
+    Layout = null;
 }
 
-<div class="container mt-4">
-    <!-- Welcome Header -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="alert alert-success">
-                <h4 class="mb-0">👋 Welcome, @Model.UserEmail!</h4>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LendSecure</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body style="margin: 0; padding: 0; overflow-x: hidden; overflow-y: auto;">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #e3f2fd;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    .dashboard-wrapper {
+        background-color: #e3f2fd;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .top-navbar {
+        background: white;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 8px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .top-navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #2196F3 !important;
+        text-decoration: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-links a {
+        color: #666;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a.active {
+        color: #2196F3;
+    }
+    
+    .nav-links a:hover {
+        color: #2196F3;
+    }
+    
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .notification-icon {
+        font-size: 1.2rem;
+        color: #666;
+        cursor: pointer;
+    }
+    
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        position: relative;
+        font-size: 0.9rem;
+    }
+    
+    .status-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        border: 2px solid white;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    
+    .dashboard-content {
+        flex: 1;
+        padding: 8px 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    .welcome-banner {
+        background-color: #e3f2fd;
+        border: none;
+        padding: 10px 15px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+    
+    .welcome-banner h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 2px;
+    }
+    
+    .welcome-banner p {
+        color: #666;
+        margin-bottom: 0;
+        font-size: 0.85rem;
+    }
+    
+    .welcome-banner strong {
+        color: #2196F3;
+    }
+    
+    .metric-card {
+        background: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 12px;
+        height: 100%;
+    }
+    
+    .metric-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .icon-balance {
+        background-color: #4caf50;
+        color: white;
+        border-radius: 8px;
+    }
+    
+    .icon-investments {
+        background-color: #90caf9;
+        color: white;
+        border-radius: 50%;
+    }
+    
+    .icon-total {
+        background-color: #ffc107;
+        color: white;
+        border-radius: 50%;
+    }
+    
+    .metric-card h5 {
+        color: #666;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .metric-card h2 {
+        color: #333;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+    
+    .metric-card small {
+        color: #999;
+        font-size: 0.75rem;
+    }
+    
+    .quick-actions-card {
+        background: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 8px;
+    }
+    
+    .quick-actions-header {
+        background: transparent;
+        border: none;
+        padding: 12px 15px 4px 15px;
+    }
+    
+    .quick-actions-header h5 {
+        color: #333;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .action-btn {
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        border: none;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+    }
+    
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        text-decoration: none;
+        color: white;
+        background-color: #2196F3 !important;
+    }
+    
+    .action-btn-primary {
+        background-color: #2196F3;
+        color: white;
+    }
+    
+    .action-btn-primary:hover {
+        background-color: #1976D2;
+    }
+    
+    .action-btn-light {
+        background-color: white;
+        color: #333;
+        border: 1px solid #e0e0e0;
+    }
+    
+    .action-btn-light:hover {
+        background-color: #2196F3;
+        color: white;
+        border-color: #2196F3;
+    }
+    
+    .account-card {
+        background: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .account-header {
+        background: transparent;
+        border: none;
+        padding: 12px 15px 4px 15px;
+    }
+    
+    .account-header h5 {
+        color: #333;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .account-info {
+        padding: 0 15px 12px 15px;
+    }
+    
+    .account-info p {
+        margin-bottom: 6px;
+        color: #333;
+        font-size: 0.85rem;
+    }
+    
+    .account-info strong {
+        color: #666;
+        font-weight: 600;
+    }
+    
+    .kyc-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+    
+    .kyc-approved {
+        background-color: #4caf50;
+        color: white;
+    }
+    
+    .kyc-pending {
+        background-color: #ff9800;
+        color: white;
+    }
+    
+    .kyc-not-submitted {
+        background-color: #999;
+        color: white;
+    }
+    
+    .btn-logout {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 6px 15px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 4px;
+    }
+    
+    .btn-logout:hover {
+        background-color: #d32f2f;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .footer {
+        background: white;
+        border-top: 1px solid #e0e0e0;
+        padding: 8px 0;
+        text-align: center;
+        color: #666;
+        font-size: 0.8rem;
+        margin-top: auto;
+    }
+    
+    .footer a {
+        color: #2196F3;
+        text-decoration: none;
+    }
+    
+    .footer a:hover {
+        text-decoration: underline;
+    }
+    
+    .alert-warning {
+        margin-bottom: 8px !important;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+</style>
+
+<div class="dashboard-wrapper">
+    <!-- Top Navigation -->
+    <nav class="top-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/Lender/Dashboard">LendSecure</a>
+            <ul class="nav-links">
+                <li><a href="/Lender/Dashboard" class="active">Dashboard</a></li>
+                <li><a href="/Loan/MyFundings">My Investments</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <div class="nav-right">
+                <span class="notification-icon">🔔</span>
+                <div class="user-avatar">
+                    @Model.UserEmail.Substring(0, 1).ToUpper()
+                    <span class="status-dot"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <div class="container" style="padding-left: 10px; padding-right: 10px;">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h4 class="mb-1">👋 Welcome, @Model.UserEmail!</h4>
                 <p class="mb-0">You're logged in as a <strong>Lender</strong></p>
             </div>
-        </div>
-    </div>
 
-    <!-- Stats Cards -->
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
-                    <h5 class="card-title">💰 Available Balance</h5>
-                    <h2 class="mb-0">@Model.WalletBalance.ToString("N0") RWF</h2>
-                    <small>Ready to lend</small>
+            <!-- Key Metrics Cards -->
+            <div class="row mb-2" style="margin-bottom: 8px !important;">
+                <div class="col-md-4 mb-2" style="margin-bottom: 6px !important;">
+                    <div class="metric-card">
+                        <div class="metric-icon icon-balance">💰</div>
+                        <h5>AVAILABLE BALANCE</h5>
+                        <h2 class="mb-0">@Model.WalletBalance.ToString("N0") RWF</h2>
+                        <small>Ready to lend</small>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2" style="margin-bottom: 6px !important;">
+                    <div class="metric-card">
+                        <div class="metric-icon icon-investments">📊</div>
+                        <h5>ACTIVE INVESTMENTS</h5>
+                        <h2 class="mb-0">@Model.ActiveFundingsCount</h2>
+                        <small>Loans you've funded</small>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2" style="margin-bottom: 6px !important;">
+                    <div class="metric-card">
+                        <div class="metric-icon icon-total">💵</div>
+                        <h5>TOTAL INVESTED</h5>
+                        <h2 class="mb-0">@Model.TotalInvested.ToString("N0") RWF</h2>
+                        <small>All-time investments</small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <h5 class="card-title">📊 Active Investments</h5>
-                    <h2 class="mb-0">@Model.ActiveFundingsCount</h2>
-                    <small>Loans you've funded</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <h5 class="card-title">💵 Total Invested</h5>
-                    <h2 class="mb-0">@Model.TotalInvested.ToString("N0") RWF</h2>
-                    <small>All-time investments</small>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- KYC Warning -->
-    @if (Model.KYCStatus != "Approved")
-    {
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="alert alert-warning">
+            <!-- KYC Warning -->
+            @if (Model.KYCStatus != "Approved")
+            {
+                <div class="alert alert-warning mb-2" style="margin-bottom: 8px !important;">
                     <strong>⚠️ KYC Required:</strong> You must upload and get your KYC documents approved before funding loans.
-                    <a href="/KYC/Upload" class="btn btn-sm btn-warning ms-2">Upload Now</a>
+                    <a href="/KYC/Upload" class="btn btn-sm btn-warning ms-2" style="padding: 4px 12px; font-size: 0.75rem;">Upload Now</a>
+                </div>
+            }
+
+            <!-- Quick Actions -->
+            <div class="row mb-2" style="margin-bottom: 8px !important;">
+                <div class="col-12">
+                    <div class="quick-actions-card">
+                        <div class="quick-actions-header">
+                            <h5 class="mb-0">⚡ Quick Actions</h5>
+                        </div>
+                        <div class="card-body" style="padding: 0 15px 10px 15px;">
+                            <div class="row">
+                                <div class="col-md-3 mb-2" style="margin-bottom: 6px !important;">
+                                    @if (Model.KYCStatus == "Approved")
+                                    {
+                                        <a href="/Loan/Browse" class="action-btn action-btn-primary">
+                                            🔍 Browse Loans to Fund
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="action-btn action-btn-primary" style="opacity: 0.6; cursor: not-allowed; pointer-events: none;">
+                                            🔍 Browse Loans to Fund
+                                        </span>
+                                    }
+                                </div>
+                                <div class="col-md-3 mb-2" style="margin-bottom: 6px !important;">
+                                    <a href="/KYC/Upload" class="action-btn action-btn-light">
+                                        📤 Upload KYC Documents
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-2" style="margin-bottom: 6px !important;">
+                                    <a href="/Loan/MyFundings" class="action-btn action-btn-light">
+                                        💰 My Funded Loans
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-2" style="margin-bottom: 6px !important;">
+                                    <a href="/Wallet/Transactions" class="action-btn action-btn-light">
+                                        📊 Transaction History
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
 
-    <!-- Quick Actions -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">⚡ Quick Actions</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <a href="/KYC/Upload" class="btn btn-outline-primary btn-lg w-100">
-                                📄 Upload KYC Documents
-                            </a>
+            <!-- Account Info -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="account-card">
+                        <div class="account-header">
+                            <h5 class="mb-0">👤 Account Information</h5>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <a href="/Loan/Browse" class="btn btn-success btn-lg w-100" @(Model.KYCStatus != "Approved" ? "disabled" : "")>
-                                🔍 Browse Loans to Fund
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <a href="/Loan/MyFundings" class="btn btn-info btn-lg w-100">
-                                💰 My Funded Loans
-                            </a>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <a href="/Wallet/Transactions" class="btn btn-warning btn-lg w-100">
-                                📊 Transaction History
-                            </a>
+                        <div class="account-info">
+                            <p><strong>Email:</strong> @Model.UserEmail</p>
+                            <p><strong>Role:</strong> Lender</p>
+                            <p>
+                                <strong>KYC Status:</strong>
+                                @if (Model.KYCStatus == "Approved")
+                                {
+                                    <span class="kyc-badge kyc-approved">✓ Approved</span>
+                                }
+                                else if (Model.KYCStatus == "Pending")
+                                {
+                                    <span class="kyc-badge kyc-pending">⏳ Pending</span>
+                                }
+                                else
+                                {
+                                    <span class="kyc-badge kyc-not-submitted">Not Submitted</span>
+                                }
+                            </p>
+                            <p><strong>Member Since:</strong> @Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
+                            <hr style="margin: 6px 0;" />
+                            <a href="/Account/Logout" class="btn-logout">🚪 Logout</a>
                         </div>
                     </div>
                 </div>
@@ -94,36 +519,15 @@
         </div>
     </div>
 
-    <!-- Account Info -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">👤 Account Information</h5>
-                </div>
-                <div class="card-body">
-                    <p><strong>Email:</strong> @Model.UserEmail</p>
-                    <p><strong>Role:</strong> Lender</p>
-                    <p>
-                        <strong>KYC Status:</strong>
-                        @if (Model.KYCStatus == "Approved")
-                        {
-                            <span class="badge bg-success">✓ Approved</span>
-                        }
-                        else if (Model.KYCStatus == "Pending")
-                        {
-                            <span class="badge bg-warning">⏳ Pending</span>
-                        }
-                        else
-                        {
-                            <span class="badge bg-secondary">Not Submitted</span>
-                        }
-                    </p>
-                    <p><strong>Member Since:</strong> @Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
-                    <hr />
-                    <a href="/Account/Logout" class="btn btn-danger">🚪 Logout</a>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            &copy; 2025 - LendSecure - <a href="/Privacy">Privacy</a>
         </div>
-    </div>
+    </footer>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
