@@ -1,0 +1,149 @@
+﻿@page
+@model LendSecure.Pages.Admin.AuditLogsModel
+@{
+    ViewData["Title"] = "Audit Logs";
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2>📋 System Audit Logs</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Audit Logs</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h6>Total Actions</h6>
+                    <h3>@Model.TotalLogs</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h6>Today's Actions</h6>
+                    <h3>@Model.TodayLogs</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h6>Unique Users</h6>
+                    <h3>@Model.UniqueUsers</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h6>Last Hour</h6>
+                    <h3>@Model.LastHourLogs</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Action Type</label>
+                    <select name="actionFilter" class="form-select">
+                        <option value="">All Actions</option>
+                        <option value="Login" selected="@(Model.ActionFilter == "Login")">User Login</option>
+                        <option value="Registration" selected="@(Model.ActionFilter == "Registration")">User Registration</option>
+                        <option value="KYC" selected="@(Model.ActionFilter == "KYC")">KYC Actions</option>
+                        <option value="Loan" selected="@(Model.ActionFilter == "Loan")">Loan Actions</option>
+                        <option value="Wallet" selected="@(Model.ActionFilter == "Wallet")">Wallet Actions</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Date Range</label>
+                    <select name="dateFilter" class="form-select">
+                        <option value="today" selected="@(Model.DateFilter == "today")">Today</option>
+                        <option value="week" selected="@(Model.DateFilter == "week")">Last 7 Days</option>
+                        <option value="month" selected="@(Model.DateFilter == "month")">Last 30 Days</option>
+                        <option value="all" selected="@(Model.DateFilter == "all")">All Time</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">&nbsp;</label>
+                    <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Audit Logs Table -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Audit Trail (@Model.Logs.Count records)</h5>
+        </div>
+        <div class="card-body">
+            @if (Model.Logs.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                                <th>IP Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var log in Model.Logs)
+                            {
+                                <tr>
+                                    <td><small>@log.CreatedAt.ToString("MMM dd, HH:mm:ss")</small></td>
+                                    <td><small>@log.User.Email</small></td>
+                                    <td>
+                                        @if (log.Action.Contains("Login"))
+                                        {
+                                            <span class="badge bg-success">@log.Action</span>
+                                        }
+                                        else if (log.Action.Contains("KYC"))
+                                        {
+                                            <span class="badge bg-warning">@log.Action</span>
+                                        }
+                                        else if (log.Action.Contains("Loan"))
+                                        {
+                                            <span class="badge bg-primary">@log.Action</span>
+                                        }
+                                        else if (log.Action.Contains("Wallet"))
+                                        {
+                                            <span class="badge bg-info">@log.Action</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@log.Action</span>
+                                        }
+                                    </td>
+                                    <td><small class="text-muted">@log.Details</small></td>
+                                    <td><small class="text-muted">@log.IpAddress</small></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">No audit logs found for the selected filters.</div>
+            }
+        </div>
+    </div>
+</div>

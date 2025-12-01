@@ -190,7 +190,7 @@ namespace LendSecure.Pages.Loan
 
                 for (int i = 1; i <= 4; i++)
                 {
-                    var repayment = new Repayment
+                    var repayment = new LendSecure.Models.Repayment
                     {
                         RepaymentId = Guid.NewGuid(),
                         LoanId = Loan.LoanId,
